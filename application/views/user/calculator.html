@@ -1,0 +1,114 @@
+
+<div  class ="back w3-white w3-center" >
+  <center>
+
+
+  <style>
+
+
+    @media screen and (min-width:301px){
+    #ro {
+      max-width: 30%;
+    }
+    }
+
+
+        @media screen and (max-width:300px){
+          #ro {
+          min-width:90%;
+          }
+
+        }
+
+
+
+
+
+
+
+
+  </style>
+
+
+  <center>
+<input  placeholder="Pryce"  class ="w3-light-gray w3-center w3-border w3-border-blue w3-input w3-text-black"
+ type ="text" id="ro" >
+
+<div class ="keyboard" >
+<p>
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="R" onclick=" sqrt() " >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="%" onclick=' v( "%" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="i" onclick=' v( "Pryce" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="C" onclick=' c( "" ) '>
+</p>
+<p>
+<input type = "button" class ="w3-button w3-blue  w3-tiny"
+value="7" onclick=' v( "7" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="8" onclick=' v( "8" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="9" onclick=' v( "9" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="+" onclick=' v( "+" ) ' >
+</p>
+<p>
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="4" onclick=' v( "4" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="5" onclick=' v( "5" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="6" onclick=' v( "6" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="-" onclick=' v( "-" ) '>
+</p>
+<p>
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="1" onclick=' v( "1" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="2" onclick=' v( "2" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="3" onclick=' v( "3" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="*" onclick=' v( "*" ) ' >
+</p>
+<p>
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="0" onclick=' v( "0" ) ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="." onclick=' v( "." ) '>
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="=" onclick=' e() ' >
+<input type = "button" class ="w3-button w3-blue w3-tiny"
+value="/" onclick=' v( "/" ) ' >
+</p>
+</div>
+</div></center>
+<script>
+
+function sqrt() {
+var val = document.querySelector( "#ro" )
+.value
+    document.getElementById( "ro" ).value =
+Math.sqrt(val);
+  }
+function c(val) {
+    document.getElementById( "ro" ).value =
+val;
+  }
+function v(val) {
+    document.getElementById( "ro" ).value +=
+val;
+  }
+function e() {
+try {
+      c( eval(document.getElementById( "ro" )
+.value))
+    } catch (e) {
+      c( 'Error' )
+    }
+  }
+  </script>

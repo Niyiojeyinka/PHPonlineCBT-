@@ -1,0 +1,250 @@
+
+
+/*
+	public function index($slug = null)
+	{
+
+
+
+    }
+
+
+    public function change_pass()
+    {
+
+
+    $this->form_validation->set_rules("pass","Old Password","trim|required");
+	$this->form_validation->set_rules("npass","New Password","trim|required|is_unique[users.password]");
+	$this->form_validation->set_rules("cpass","Confirm New Password","trim|required|matches[npass]");
+
+    if(!$this->form_validation->run())
+      {
+
+
+    $_SESSION['err_msg'] = validation_errors();
+        $this->session->mark_as_flash('err_msg');
+
+
+
+    show_page('users/settings');
+
+    }else{
+
+
+
+     $user_det =   $this->users_model->get_userby_email($_SESSION["email"]);
+
+       if ($user_det['password'] == trim($this->input->post('pass')))
+       {
+
+        //change password
+          if( $this->users_model->insert_new_password())
+          {
+             //show suc message
+
+              $_SESSION['err_msg'] = '<b class="w3-text-blue">Password changed successfully</b><br>';
+              $this->session->mark_as_flash('err_msg');
+              show_page("users/settings");
+          }else{
+
+              //show err message
+
+             $_SESSION['err_msg'] = '<b class="w3-text-red">uknown error occurred</b>';
+              $this->session->mark_as_flash('err_msg');
+              show_page("users/settings");
+
+
+          }
+
+
+
+
+
+       }else{
+
+
+                   //incorrect password  error page
+
+
+             $_SESSION['err_msg'] = '<b class="w3-text-red">The password you entered is incorrect</b><br>';
+              $this->session->mark_as_flash('err_msg');
+              show_page("users/settings");
+
+
+
+       }
+
+
+
+
+
+    }
+
+
+
+
+
+
+    }
+
+
+    public function change_email()
+    {
+//remember to create mail function
+
+
+    $this->form_validation->set_rules("pass","Password","trim|required");
+	$this->form_validation->set_rules("nemail","New Email","trim|required|is_unique[users.email]");
+	$this->form_validation->set_rules("cemail","Confirm New Email","trim|required|matches[nemail]");
+
+        if($this->form_validation->run() == false)
+        {
+
+             $_SESSION['err_msg'] = validation_errors();
+        $this->session->mark_as_flash('err_msg');
+
+
+        show_page("users/settings");
+
+
+        }
+       else{
+
+
+
+     $user_det =   $this->users_model->get_userby_email($_SESSION["email"]);
+
+       if ($user_det['password'] == trim($this->input->post('pass')))
+       {
+
+        //change password
+          if( $this->users_model->insert_new_email())
+          {
+             //show suc message
+
+              $_SESSION['err_msg'] = '<b class="w3-text-blue">Your email has been changed successfully</b><br>';
+              $this->session->mark_as_flash('err_msg');
+              show_page("users/settings");
+          }else{
+
+              //show err message
+
+             $_SESSION['err_msg'] = '<b class="w3-text-red">uknown error occurred</b>';
+              $this->session->mark_as_flash('err_msg');
+              show_page("users/settings");
+
+
+          }
+
+
+
+
+
+       }else{
+
+
+                   //incorrect password  error page
+
+
+             $_SESSION['err_msg'] = '<b class="w3-text-red">The password you entered is incorrect</b><br>';
+              $this->session->mark_as_flash('err_msg');
+              show_page("users/settings");
+
+
+
+       }
+
+
+
+
+
+    }
+
+
+
+
+
+
+    }
+
+    public function confirm_email()
+    {
+
+    if (isset($_POST["submit"]))
+    {
+        $code = $_POST['code'];
+        if ($this->users_model->get_vcode() != $code || empty($this->users_model->get_vcode()))
+        {
+echo "incorrect";
+
+            show_page("users/unconfirm");
+
+        }else{
+
+
+
+        //confirm it
+            if($this->users_model->change_vcode()){
+
+
+                show_page("users/dashboard");
+
+        }
+
+
+
+
+
+
+        }
+
+
+}
+}
+
+
+
+
+
+
+public function settings_accttype()
+{
+
+    if($this->input->post('accttype') != null)
+    {
+
+
+ // get input
+
+      $email = $_SESSION["email"];
+
+if( $this->users_model->change_acct_type($email))
+{
+
+
+if( $this->input->post("accttype") == "General"
+ ){
+        show_page("users/dashboard");
+
+}
+else{
+
+  show_page($this->input->post("accttype"));
+
+
+
+}
+
+}
+
+
+    }
+
+
+
+
+
+
+
+}
+*/
