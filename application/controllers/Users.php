@@ -18,7 +18,7 @@ public function __construct()
      parent::__construct();
 
     //$this->load->model(array('pages_model','users_model'));
-    $this->load->model(array('users_model','board_model','pages_model'));
+    $this->load->model(array('users_model','pages_model'));
         $this->load->helper(array('url','form','page_helper'));
      $this->load->library(array('form_validation','session'));
   //   session_start();
