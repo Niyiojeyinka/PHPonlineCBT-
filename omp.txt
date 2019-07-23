@@ -1,2 +1,0 @@
-just select player from competition where time used is smallest and mark is
-highest
