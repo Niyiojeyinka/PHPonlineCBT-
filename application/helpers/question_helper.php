@@ -16,7 +16,7 @@
  function randomize($out_put)
 {
 
-
+//array_rand($question_ids,$label['no_of_questions']);
   $i = 0;
  $container =[];
 
