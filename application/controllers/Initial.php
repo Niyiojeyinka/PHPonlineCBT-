@@ -1,6 +1,6 @@
 <?php
 /***
- * Name:       Pryce
+ * Name:       CBT
  * Package:     Initial.php
  * About:        A controller that handle auto table creation operation operation
  * Copyright:  (C) 2018,
@@ -19,7 +19,6 @@ class Initial extends CI_Controller {
             id int(11) NOT NULL AUTO_INCREMENT,
             firstname varchar(128),
             lastname varchar(128),
-            username varchar(128),
             password varchar(128),
             email varchar(128),
             phone varchar(128),

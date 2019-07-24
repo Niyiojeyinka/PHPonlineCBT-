@@ -8,10 +8,10 @@
 <h4 class='w3-text-theme'><b>Registration</b></h4>
 
 <div class='w3-text-red'><?php echo validation_errors();
-if(isset($_SESSION['err_msg']))
+if(isset($_SESSION['action_status_report']))
 {
 
- echo $_SESSION['err_msg'];
+ echo $_SESSION['action_status_report'];
 
 }
  ?></div>

@@ -9,17 +9,17 @@
 <div class='w3-text-red'><?php
 
 echo validation_errors();
- if(isset($_SESSION['err_msg']))
+ if(isset($_SESSION['action_status_report']))
 {
 
-  echo $_SESSION['err_msg'];
+  echo $_SESSION['action_status_report'];
 
 }
 ?></div>
 <div class='w3-row'>
-    <i  style='margin-right:3%' class="fa fa-phone
+    <i  style='margin-right:3%' class="fa fa-at
      w3-large w3-text-theme w3-center"></i>
-     <input class='w3-center' type='tel' name='phone'  value="<?php echo set_value("phone"); ?>" placeholder='Phone Number'/>
+     <input class='w3-center' type='email' name='email'  value="<?php echo set_value("email"); ?>" placeholder='Email Address'/>
 </div>
 
 <br>

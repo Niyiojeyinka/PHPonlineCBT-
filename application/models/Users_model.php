@@ -4,9 +4,9 @@ class Users_model extends CI_Model {
 
 
 /***
- * Name:      Pryce
+ * Name:      CBT
  * Package:    Users_model.php
- * About:        A model class that handle Pryce user  model operation
+ * About:        A model class that handle CBT user  model operation
  * Copyright:  (C) 2018
  * Author:     Ojeyinka Philip Olaniyi
  * License:    closed /propietry
@@ -17,18 +17,6 @@ class Users_model extends CI_Model {
     parent::__construct();
     $this->load->database();
     $this->load->library('session');
-
- $holder = array(
-
-"lastlog" => time()
-
-
-
-)  ;
-
-
-   $this->db->update("users",$holder,array("id" => $this->session->id));
-
 
 }
 //new
@@ -41,25 +29,14 @@ public function register()
 
 'firstname' =>  $this->input->post('firstname'),
 'lastname' =>  $this->input->post('lastname'),
-'username' =>  "@".$this->input->post('lastname').uniqid(),
 'email' => $this->input->post('email'),
 'phone' => $this->input->post('phone'),
-'password' => $this->input->post('password'),
+'password' => md5(md5($this->input->post('password'))),
 'profile_img' => 'test.png',
-'first_choice' => 'First Choice Institution,Nigeria',
-'second_choice' => 'Second Choice Institution,Nigeria',
-'third_choice' => 'Third Choice Institution,Nigeria',
-'fourth_choice' => 'Fourth Choice Institution,Nigeria',
-'short_status' => '"Hello Guys,I"m new here"',
-'course' => 'My course here',
-'acct_type' => 'free',
-'username_edit' => '0',
  'level' => 1,
-'account_bal' => 0.00,
  'time' => time()
 
 );
-//if username_edit is then username have been changed
 
 
 
@@ -69,73 +46,36 @@ public function register()
  return true;
 
 
-
-
-
-
 }
 //new
 public function login_check()
 {
-
-
-
-
 $this->db->select('password');
 
-$query = $this->db->get_where('users',array("phone" => $this->input->post("phone")));
+$query = $this->db->get_where('users',array("email" => $this->input->post("email")));
 
 
-$_pass = $this->input->post('password');
+$_pass = md5(md5($this->input->post('password')));
 if (in_array($_pass,$query->row_array()) )
 {
-$datab  = array('lastlog' => time() );
-$this->db->update('users',$datab,array('password' => $_pass));
-
-
-      $datah = array(
-
-  'user_id' => $query->row_array()['id'],
-  'action' => 'Log into account',
-  'time' => time()
-
- );
-
-
-  $this->db->insert('history',$datah);
-
-
-
-
   return true;
 }
    else
    {
    return false;
    }
-
-
-
-
-
-
 }
-/*
-public function forg($emmail)
+
+
+
+//new
+public function get_user_id_by_its_email($email)
 {
-
-
-$this->db->select('password');
-$query = $this->db->get_where('users',array("email" => $emmail));
-
-foreach ($query->result_array() as $arr)
-{
-return $arr['password'];
+   $query = $this->db->get_where('users',array("email" => $email));
+  return $query->row_array()['id'];
 }
 
-}
 
-*/
 
 public function get_users($offset,$limit)
 {
@@ -337,20 +277,6 @@ return true;
 
 }
 
-
-
-//new
-public function get_user_id_by_password($pass)
-{
-
-
-    $query = $this->db->get_where('users',array("password" => $pass));
-  return $query->row_array()['id'];
-
-
-
-
-}
 
 //new
 public function get_user_by_id()
