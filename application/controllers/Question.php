@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Question extends CI_Controller {
 /*
 
-Name:Pryce
+Name:CBT
 Date:Start Writing  2018
 
 */
@@ -15,22 +15,13 @@ public function __construct()
 {
      parent::__construct();
 
-    $this->load->model(array('question_model','users_model','dashboard_model','board_model','pages_model'));
+    $this->load->model(array('question_model','users_model','dashboard_model','pages_model'));
          $this->load->helper(array('url','form','question_helper','page_helper'));
      $this->load->library(array('form_validation','session'));
 //user login check here
 
       if (!isset($this->session->id) || !isset($this->session->logged_in))
-       {      header('Location: '.base_url().'index.php/users/login');     }
-
-
-
-if($this->dashboard_model->get_user_subjects_combination() == NULL )
-{
-
-show_page('Dashboard_ext/subject_comb');
-
-}
+       {      show_page('users/login')     }
 
 }
 
@@ -38,16 +29,12 @@ show_page('Dashboard_ext/subject_comb');
 
 public function index($slug = null)
 {
-  $v_slug = "question/index";
-    $this->board_model->insert_view($v_slug);
+  
 
-
-
-        $data["title"] ="Pryce | The Online Student Resources Center";
-        $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+        $data["title"] ="Computer Based Test";
+        $data["keywords"] ="CBT";
         $data["author"] ="Ojeyinka olaniyi philip";
-       $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
-       Examnation Candidates";
+       $data["descriptions"] ="descriptions";
        $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
        $data['items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
        $data['user_details'] = $this->users_model->get_user_by_id();
@@ -66,21 +53,9 @@ public function index($slug = null)
 
 
 }
-public function test()
-{
-  $condition_array  = array('subject' => 'Chemistry','id' => 11,'account_type' => 'free');
-  $questio = $this->question_model->get_question($condition_array);
- $corect_answer = $questio['answer'];
-var_dump($corect_answer);
-
-}
-
 public function timed_test($slug = null)
 {
-  $v_slug = "question/timed_test";
-    $this->board_model->insert_view($v_slug);
-
-
+  
 
      		$this->form_validation->set_rules("type","Test Type","required");
 
@@ -272,8 +247,8 @@ if(isset($_SESSION['s0_score']))
 
 
 
-           $data["title"] ="Pryce | Timed Examination";
-          $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+           $data["title"] ="CBT | Timed Examination";
+          $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
           $data["author"] ="Ojeyinka olaniyi philip";
          $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
          Examnation Candidates";
@@ -328,8 +303,8 @@ if(!isset($_SESSION['start_time']))
   $data['subject_items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
 
 
-           $data["title"] ="Pryce | ".$data['subject_items'][0]." Examination";
-           $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+           $data["title"] ="CBT | ".$data['subject_items'][0]." Examination";
+           $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
            $data["author"] ="Ojeyinka olaniyi philip";
            $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
            Examnation Candidates";
@@ -425,8 +400,8 @@ public function s1_question_page()
     $data['subject_items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
 
 
-             $data["title"] ="Pryce | ".$data['subject_items'][1]." Examination";
-             $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+             $data["title"] ="CBT | ".$data['subject_items'][1]." Examination";
+             $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
              $data["author"] ="Ojeyinka olaniyi philip";
              $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
              Examnation Candidates";
@@ -527,8 +502,8 @@ public function s2_question_page()
       $data['subject_items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
 
 
-               $data["title"] ="Pryce | ".$data['subject_items'][2]." Examination";
-               $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+               $data["title"] ="CBT | ".$data['subject_items'][2]." Examination";
+               $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
                $data["author"] ="Ojeyinka olaniyi philip";
                $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
                Examnation Candidates";
@@ -629,8 +604,8 @@ public function s3_question_page($question_index = null)
       $data['subject_items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
 
 
-               $data["title"] ="Pryce | ".$data['subject_items'][3]." Examination";
-               $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+               $data["title"] ="CBT | ".$data['subject_items'][3]." Examination";
+               $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
                $data["author"] ="Ojeyinka olaniyi philip";
                $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
                Examnation Candidates";
@@ -959,8 +934,8 @@ $_SESSION['correct_answers']["s0_question_page"][$i])
 
 //save result to db later here
 
-        $data["title"] ="Pryce | Results";
-        $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+        $data["title"] ="CBT | Results";
+        $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
         $data["author"] ="Ojeyinka olaniyi philip";
        $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
        Examnation Candidates";
@@ -1007,8 +982,8 @@ $offset =$offset-1;
 
 }
 
-          $data["title"] ="Pryce | Corrections";
-          $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+          $data["title"] ="CBT | Corrections";
+          $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
           $data["author"] ="Ojeyinka olaniyi philip";
          $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
          Examnation Candidates";
@@ -1223,8 +1198,8 @@ if(isset($_SESSION['s0_score']))
 /*$temp = array_merge($uni_out_put,array('12','13'),array('14','15'),
 array('16','17'));*/
 
-           $data["title"] ="Pryce | Timed Examination";
-          $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+           $data["title"] ="CBT | Timed Examination";
+          $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
           $data["author"] ="Ojeyinka olaniyi philip";
          $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
          Examnation Candidates";
@@ -1276,8 +1251,8 @@ if(!isset($_SESSION['start_time']))
   $data['subject_items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
 
 
-           $data["title"] ="Pryce | ".$_SESSION['subject']." Examination";
-           $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+           $data["title"] ="CBT | ".$_SESSION['subject']." Examination";
+           $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
            $data["author"] ="Ojeyinka olaniyi philip";
            $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
            Examnation Candidates";
@@ -1514,8 +1489,8 @@ $_SESSION['correct_answers']['freedom'][$i])
 
 //save result to db later here
 
-        $data["title"] ="Pryce | Results";
-        $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+        $data["title"] ="CBT | Results";
+        $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
         $data["author"] ="Ojeyinka olaniyi philip";
        $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
        Examnation Candidates";
@@ -1561,8 +1536,8 @@ $offset =$offset-1;
 
 }
 
-          $data["title"] ="Pryce | Corrections";
-          $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
+          $data["title"] ="CBT | Corrections";
+          $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
           $data["author"] ="Ojeyinka olaniyi philip";
          $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
          Examnation Candidates";
@@ -1654,8 +1629,8 @@ public function save_result($offset = 0)
 
 
 
-$data["title"] ="Pryce | Corrections";
-$data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer
+$data["title"] ="CBT | Corrections";
+$data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer
 ,notes";
 $data["author"] ="Ojeyinka olaniyi philip";
 $data["descriptions"] ="The online Education Platform for Student and Unified

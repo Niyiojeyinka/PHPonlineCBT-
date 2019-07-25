@@ -10,11 +10,6 @@
  * License:    closed /propietry
  ***/
 
- function show_login($value)
-{
-
-   header('Location: '.base_url().'index.php/user/login/'.$value);
-}
 
 function show_page($value)
 {
