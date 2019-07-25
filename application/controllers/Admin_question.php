@@ -88,7 +88,7 @@ return TRUE;
 	{
 
 
-            $data["title"] ="Pryce | Admin Dashboard";
+            $data["title"] ="CBT | Admin Dashboard";
             $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
             $data["author"] ="Ojeyinka olaniyi philip";
            $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
@@ -142,7 +142,7 @@ return TRUE;
 
 public function question_stat()
 {
-              $data["title"] ="Pryce | Admin Dashboard";
+              $data["title"] ="CBT | Admin Dashboard";
               $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
               $data["author"] ="Ojeyinka olaniyi philip";
              $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
@@ -211,7 +211,7 @@ $config['file_name']     = $name.".xml";
 
 
 
-              $data["title"] ="Pryce | Admin Dashboard";
+              $data["title"] ="CBT | Admin Dashboard";
               $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
               $data["author"] ="Ojeyinka olaniyi philip";
              $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
@@ -307,7 +307,7 @@ $data['pagination'] = $this->pagination->create_links();
 
 
 
-  $data["title"] ="Pryce | Admin Dashboard";
+  $data["title"] ="CBT | Admin Dashboard";
   $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
   $data["author"] ="Ojeyinka olaniyi philip";
  $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
@@ -429,7 +429,7 @@ if( $this->db->insert('questions',$question))
 
 
 
-              $data["title"] ="Pryce | Admin Dashboard";
+              $data["title"] ="CBT | Admin Dashboard";
               $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
               $data["author"] ="Ojeyinka olaniyi philip";
              $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
