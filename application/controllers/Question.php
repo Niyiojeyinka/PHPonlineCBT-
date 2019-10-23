@@ -23,7 +23,7 @@ public function __construct()
       if (!isset($this->session->id) || !isset($this->session->logged_in))
        {      show_page('users/login') ;    }
 
-     
+
 $this->siteName ="CBT";
 $this->descriptions ="Examnation Software";
 $this->author ="author Name";
@@ -38,11 +38,12 @@ public function index($slug = null)
 {
   
 
-        $data["title"] ="Computer Based Test";
-        $data["keywords"] ="CBT";
-        $data["author"] ="Ojeyinka olaniyi philip";
-       $data["descriptions"] ="descriptions";
-       $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
+
+            $data["title"] = $this->siteName." | Computer Based Test";
+            $data["keywords"] =$this->keywords;
+            $data["author"] =$this->author;
+           $data["descriptions"] =$this->descriptions;
+           $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
        $data['items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
        $data['user_details'] = $this->users_model->get_user_by_id();
 
