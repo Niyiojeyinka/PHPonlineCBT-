@@ -66,11 +66,11 @@ public function start($slug = null)
 {
   
 
-        $data["title"] ="Start";
-        $data["keywords"] ="CBT";
-        $data["author"] ="Ojeyinka olaniyi philip";
-       $data["descriptions"] ="descriptions";
-       $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
+            $data["title"] = $this->siteName." | Start";
+            $data["keywords"] =$this->keywords;
+            $data["author"] =$this->author;
+           $data["descriptions"] =$this->descriptions;
+           $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
        $data['items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
        $data['user_details'] = $this->users_model->get_user_by_id();
 
@@ -283,12 +283,12 @@ if(isset($_SESSION['s0_score']))
 
 
 
-           $data["title"] ="CBT | Timed Examination";
-          $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
-          $data["author"] ="Ojeyinka olaniyi philip";
-         $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
-         Examnation Candidates";
-         $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
+       
+            $data["title"] = $this->siteName." | Timed Examination";
+            $data["keywords"] =$this->keywords;
+            $data["author"] =$this->author;
+           $data["descriptions"] =$this->descriptions;
+           $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
          $data['items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
          $data['user_details'] = $this->users_model->get_user_by_id();
 
