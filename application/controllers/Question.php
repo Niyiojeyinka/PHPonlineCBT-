@@ -23,6 +23,13 @@ public function __construct()
       if (!isset($this->session->id) || !isset($this->session->logged_in))
        {      show_page('users/login') ;    }
 
+     
+$this->siteName ="CBT";
+$this->descriptions ="Examnation Software";
+$this->author ="author Name";
+$this->keywords ="keywords";
+
+
 }
 
 
