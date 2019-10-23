@@ -14,8 +14,8 @@ class Initial extends CI_Controller {
     {
 
     $this->load->database();
-
-        $sql1 = "CREATE TABLE users (
+    $queries = array(
+"CREATE TABLE users (
             id int(11) NOT NULL AUTO_INCREMENT,
             firstname varchar(128),
             lastname varchar(128),
@@ -28,9 +28,8 @@ class Initial extends CI_Controller {
             level int(2),
             lastlog varchar(128),
             PRIMARY KEY (id)
-    );";
-
-    $sql2 = "CREATE TABLE questions (
+    );",
+"CREATE TABLE questions (
         id int(11) NOT NULL AUTO_INCREMENT,
         subject varchar(128),
          year varchar(128),
@@ -55,54 +54,39 @@ class Initial extends CI_Controller {
          author varchar(128),
          time int(20),
          PRIMARY KEY (id)
-);";
-
-     $sql3 = "CREATE TABLE media (
+);",
+"CREATE TABLE media (
         id int(11) NOT NULL AUTO_INCREMENT,
         name varchar(128),
         time int(20),
         link varchar(128),
         type varchar(128),
         PRIMARY KEY (id)
-);";
-
-
-
- $sql4= "CREATE TABLE system_var (
+);",
+"CREATE TABLE system_var (
     id int(11) NOT NULL AUTO_INCREMENT,
     variable_name varchar(128),
     variable_value varchar(128),
     long_value text,
     PRIMARY KEY (id)
-);";
-
-
-     $sql5 = "CREATE TABLE history (
+);",
+"CREATE TABLE history (
         id int(11) NOT NULL AUTO_INCREMENT,
         user_id varchar(128),
          details varchar(128),
         action varchar(128),
          time int(20),
          PRIMARY KEY (id)
-);";
-
-
-
-
-     $sql6 = "CREATE TABLE common_tab (
+);",
+"CREATE TABLE common_tab (
         id int(11) NOT NULL AUTO_INCREMENT,
         position varchar(128),
         short_det varchar(128),
          content text,
         PRIMARY KEY (id)
-);";
-
-
-
-
-
-
-    $sql7 = "CREATE TABLE results (
+);"
+,
+"CREATE TABLE results (
         id int(11) NOT NULL AUTO_INCREMENT,
         user_id varchar(128) NOT NULL,
         standard_score varchar(128),
@@ -114,21 +98,15 @@ class Initial extends CI_Controller {
         start_time varchar(128),
         time_allowed varchar(128),
          PRIMARY KEY (id)
-);";
-
-
-
-
-     $sql8 = "CREATE TABLE subjects (
+);", "CREATE TABLE subjects (
         id int(11) NOT NULL AUTO_INCREMENT,
         name varchar(128),
         short_name varchar(128),
           PRIMARY KEY (id)
-);";
-
-
-
- foreach(array($sql1,$sql2,$sql3,$sql4,$sql5,$sql6,$sql7,$sql8) as $value)
+);"
+    );
+       
+ foreach($queries as $value)
  {
  
   if ($this->db->query($value))
