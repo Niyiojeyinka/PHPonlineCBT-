@@ -21,7 +21,7 @@ public function __construct()
 //user login check here
 
       if (!isset($this->session->id) || !isset($this->session->logged_in))
-       {      show_page('users/login')     }
+       {      show_page('users/login') ;    }
 
 }
 
