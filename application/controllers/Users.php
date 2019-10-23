@@ -17,6 +17,10 @@ public function __construct()
         $this->load->helper(array('url','form','page_helper'));
      $this->load->library(array('form_validation','session'));
 
+
+$this->siteName ="CBT";
+$this->descriptions ="Examnation Software";
+$this->author ="author Name";
 }
 
 	public function register($slug = null)
@@ -38,12 +42,10 @@ if ($this->form_validation->run() == FALSE)
 {
 
 
-               $data["title"] ="CBT | Register";
+               $data["title"] = $this->siteName." | Register";
                $data["keywords"] ="";
-               $data["author"] ="Ojeyinka olaniyi philip";
-              $data["descriptions"] ="The online Education Platform for Student
-              and Unified Tertiary Matriculation
-              Examnation Candidates";
+               $data["author"] =$this->author;
+              $data["descriptions"] =$this->descriptions;
 
              $this->load->view('common/headmeta_view',$data);
                  $this->load->view('common/header_view',$data);
@@ -90,11 +92,10 @@ if ($this->form_validation->run() == FALSE)
   	  	//login page
 
 
-              $data["title"] ="CBT | Student login";
-              $data["keywords"] ="keywords";
-              $data["author"] ="Ojeyinka olaniyi philip";
-             $data["descriptions"] ="descriptions";
-
+               $data["title"] = $this->siteName." | Student Login";
+               $data["keywords"] ="";
+               $data["author"] =$this->author;
+              $data["descriptions"] =$this->descriptions;
             $this->load->view('common/headmeta_view',$data);
                 $this->load->view('common/header_view',$data);
                 $this->load->view('common/nav_view',$data);
