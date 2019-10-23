@@ -25,6 +25,11 @@ public function __construct()
   }
 
 
+$this->siteName ="CBT";
+$this->descriptions ="Examnation Software";
+$this->author ="author Name";
+$this->keywords ="keywords";
+
 
 }
 //callback function
@@ -88,11 +93,10 @@ return TRUE;
 	{
 
 
-            $data["title"] ="CBT | Admin Dashboard";
-            $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
-            $data["author"] ="Ojeyinka olaniyi philip";
-           $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
-           Examnation Candidates";
+            $data["title"] = $this->siteName." | Admin Dashboard";
+            $data["keywords"] =$this->keywords;
+            $data["author"] =$this->author;
+           $data["descriptions"] =$this->descriptions;
            $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
            $data['items'] = $this->dashboard_model->get_avail_subject();
 
@@ -142,12 +146,12 @@ return TRUE;
 
 public function question_stat()
 {
-              $data["title"] ="CBT | Admin Dashboard";
-              $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
-              $data["author"] ="Ojeyinka olaniyi philip";
-             $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
-             Examnation Candidates";
-             $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
+            
+            $data["title"] = $this->siteName." | Admin Dashboard";
+            $data["keywords"] =$this->keywords;
+            $data["author"] =$this->author;
+           $data["descriptions"] =$this->descriptions;
+           $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
              $data['subjects'] = $this->dashboard_model->get_avail_subject();
 
    	$this->load->view('/admin/header_view',$data);
@@ -429,12 +433,12 @@ if( $this->db->insert('questions',$question))
 
 
 
-              $data["title"] ="CBT | Admin Dashboard";
-              $data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
-              $data["author"] ="Ojeyinka olaniyi philip";
-             $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
-             Examnation Candidates";
-             $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
+             
+            $data["title"] = $this->siteName." | Admin Dashboard";
+            $data["keywords"] =$this->keywords;
+            $data["author"] =$this->author;
+           $data["descriptions"] =$this->descriptions;
+           $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
              //$data['subjects'] = $this->dashboard_model->get_avail_subject();
 
 
