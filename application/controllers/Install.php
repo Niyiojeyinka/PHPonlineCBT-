@@ -3,7 +3,7 @@
  * Name:       CBT
  * Package:     Initial.php
  * About:        A controller that handle auto table creation operation operation
- * Copyright:  (C) 2018,
+ * Copyright:  (C) 2018,2019
  * Author:     Ojeyinka Philip Olaniyi
  * License:    closed /propietry
  ***/
