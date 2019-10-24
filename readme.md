@@ -1,6 +1,5 @@
-###################
-PHP CBT Software 
-###################
+# PHP CBT Software 
+
 
 
 Onscreen Calculator
