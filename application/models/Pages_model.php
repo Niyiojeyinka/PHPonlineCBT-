@@ -44,9 +44,9 @@ $query = $this->db->get_where('pages',array("id" => $id));
 public function get_pagelist($offset,$limit)
 {
 
- $res = $this->db->get("pages",$limit,$offset);
-$result = $res->result_array();
-return $result;
+ $query = $this->db->get("pages",$limit,$offset);
+return $query->result_array();
+
 
  }
 
