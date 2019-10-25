@@ -2,6 +2,9 @@
   
 <span class="w3-large w3-text-indigo">Welcome </span>
 
+<br></br>
+<span class="w3-medium">Click the start button below to start</span>
+
 <a class="w3-button w3-indio w3-large" href="<?=site_url("questions/start") ?>">Start</a>
 
 </div>
