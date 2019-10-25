@@ -7,10 +7,10 @@ public function __construct()
 {
     parent::__construct();
 
+    $this->load->library(array('form_validation','session'));
     $this->load->model(array('team_model','admin_question_model' ,
     'dashboard_model' ,'admin_blog_model','pages_model','users_model','question_model'));
     $this->load->helper(array('url','form_helper','blog_helper','time_helper','page_helper'));
-    $this->load->library(array('form_validation','session'));
     //  session_start();
      //get this from db later
 
