@@ -94,7 +94,7 @@ if ($this->form_validation->run() == FALSE)
 
 
                $data["title"] = $this->siteName." | Student Login";
-               $data["keywords"] ="";
+               $data["keywords"] =$this->keywords;
                $data["author"] =$this->author;
               $data["descriptions"] =$this->descriptions;
             $this->load->view('common/headmeta_view',$data);
