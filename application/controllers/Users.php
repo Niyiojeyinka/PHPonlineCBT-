@@ -43,7 +43,7 @@ if ($this->form_validation->run() == FALSE)
 
 
                $data["title"] = $this->siteName." | Register";
-               $data["keywords"] ="";
+               $data["keywords"] = $this->keywords;
                $data["author"] =$this->author;
               $data["descriptions"] =$this->descriptions;
 
