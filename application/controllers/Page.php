@@ -23,11 +23,11 @@ $this->keywords="aut, Name";
 	{
 
 
-     	$data["title"] ="Pryce | The Online Student Resources Center";
-     	$data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
-     	$data["author"] ="Ojeyinka olaniyi philip";
-		 $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
-		 Examnation Candidates";
+   
+     $data["title"] = $this->siteName." | Welcome";
+               $data["keywords"] = $this->keywords;
+               $data["author"] =$this->author;
+              $data["descriptions"] =$this->descriptions;
 
 		$this->load->view('common/headmeta_view',$data);
         $this->load->view('common/header_view',$data);
