@@ -148,60 +148,6 @@ public function question_page()
            $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
            $data['user_details'] = $this->users_model->get_user_by_id();
 
-if(!isset($_SESSION["question_index"]['s0_question_page']) || $_SESSION["question_index"]['s0_question_page'] ==1)
-{
-  $index_to_use = 0;
-  /*$index_to_use is index of question id randomly selected from
-corresponding subject session array
-*/
-}else{
-
-  $index_to_use = $_SESSION["question_index"]['s0_question_page'] - 1;
-}
-
-
-$question_id = $_SESSION['english_ids'][$index_to_use];
-$data['count_sub'] =count($_SESSION['english_ids']);
-
-
-
-//if click is more than available questions
-//in other words if index not exists
-if($question_id == NULL)
-{
-for($i=0;$i < $data['count_sub'];$i++)
-{
-
-  $bindex =$i;
-}
-$question_id = $_SESSION['english_ids'][$bindex];
- $_SESSION["question_index"]['s0_question_page'] = $data['count_sub'] -1;
-}
-
-
-
-
-if($data['user_details']['acct_type'] == 'free')
-{
-
-  $condition_array  = array('subject' => $data['subject_items'][0],'id' =>
-   $question_id,'account_type' => $data['user_details']['acct_type']);
-
-
-}else{
-
-  $condition_array  = array('subject' => $data['subject_items'][0],'id' =>
-   $question_id);
-
-
-}
-$data['question'] = $this->question_model->get_question($condition_array);
-
-
-$data["q_id"] = $question_id;
-  $data["q_index"] = array_search($question_id,$_SESSION['english_ids']);
-  //index of question_id in an array;
-
 
           $this->load->view('common/headmeta_view',$data);
               $this->load->view('user/common/users_nav_view',$data);
