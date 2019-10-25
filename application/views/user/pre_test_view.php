@@ -30,10 +30,6 @@ elseif($this->input->post('type') == '120'){
 
 }
 
-$eng_count = count($_SESSION['english_ids']);
-$other_count1 = count($_SESSION['subject_1_ids']);
-$other_count2 = count($_SESSION['subject_2_ids']);
-$other_count3 = count($_SESSION['subject_3_ids']);
 
 
 
