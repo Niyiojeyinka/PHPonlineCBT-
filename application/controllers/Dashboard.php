@@ -24,6 +24,11 @@ public function __construct()
 
       if (!isset($this->session->id) || !isset($this->session->logged_in))
        {      header('Location: '.base_url().'index.php/users/login');     }
+     
+
+$this->siteName ="CBT";
+$this->descriptions ="Examnation Software";
+$this->author ="author Name";
 
 
 
