@@ -2,7 +2,7 @@
 
 
 /***
- * Name:       Pryce
+ * Name:       CBT
  * Package:     time_helper.php
  * About:       time helper
  * Copyright:  (C) 2018,
