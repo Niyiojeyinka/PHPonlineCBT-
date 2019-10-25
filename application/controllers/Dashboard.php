@@ -41,7 +41,7 @@ public function index($slug = null)
 {
 
      $data["title"] = $this->siteName." | Welcome";
-               $data["keywords"] ="";
+               $data["keywords"] = $this->keywords;
                $data["author"] =$this->author;
               $data["descriptions"] =$this->descriptions;
        $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
