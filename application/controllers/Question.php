@@ -134,7 +134,7 @@ show_page('question/index');
 
 
 
-public function s0_question_page()
+public function question_page()
 {
 if(!isset($_SESSION['start_time']))
 {
