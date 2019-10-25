@@ -392,13 +392,6 @@ show_page('question/submit');
 
 public function submit()
 {
-  $v_slug = "question/submit";
-  $this->board_model->insert_view($v_slug);
-
-
-$_SESSION['s0_score'] = 0;
-$_SESSION['s1_score'] = 0;
-$_SESSION['s2_score'] = 0;
 $_SESSION['s3_score'] = 0;
 
   foreach($_SESSION['user_answers'] as $key => $value[])
