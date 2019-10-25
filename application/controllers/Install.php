@@ -105,6 +105,16 @@ class Install extends CI_Controller {
         name varchar(128),
         short_name varchar(128),
           PRIMARY KEY (id)
+);",
+
+"CREATE TABLE tests (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        name varchar(128),
+        time_start varchar(128),
+        time_end varchar(128),
+        time_allowed varchar(128),
+        time int(20),
+        PRIMARY KEY (id)
 );"
     );
        
