@@ -14,12 +14,10 @@ public function __construct()
     //  session_start();
      //get this from db later
 
- if (!isset($this->session->name) || !isset($this->session->logged_in))
+ if ( !isset($this->session->admin_logged_in))
  {
 
-
-    header('Location: '.base_url().'index.php/team/');
-
+	show_page('team');
 
 
  }
