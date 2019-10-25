@@ -4,6 +4,7 @@
 <br></br>
 <span class="w3-medium">Click the button below to continue </span>
 <br></br>
-<a class="w3-button w3-indigo w3-text-white w3-large" href="<?=site_url("question/start") ?>">Start</a>
+<a class="w3-button w3-indigo w3-text-white w3-large w3-hover-text-indigo
+w3-hover-white" href="<?=site_url("question/start") ?>">Start</a>
 
 </div>
