@@ -8,10 +8,10 @@ Admin Dashboard
 
 ##Administration
 <br>
-Admin add questions
-Admin set test time 
-Admin set test next test id/subject
-Admin get results in csv format
+Admin add questions<br>
+Admin set test time <br>
+Admin set test next test id/subject<br>
+Admin get results in csv format<br>
 
 
 ## How it works
