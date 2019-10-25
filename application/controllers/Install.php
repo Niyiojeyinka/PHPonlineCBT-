@@ -117,7 +117,7 @@ class Install extends CI_Controller {
         time int(20),
         PRIMARY KEY (id)
 );",
-"CREATE TABLE test_session (
+"CREATE TABLE test_sessions (
         id int(11) NOT NULL AUTO_INCREMENT,
         user_id varchar(128),
         answers text, 
