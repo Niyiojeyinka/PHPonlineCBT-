@@ -9,6 +9,13 @@ public function __construct()
      $this->load->model(array('users_model','pages_model'));
      $this->load->helper(array('url','form','page_helper'));
      $this->load->library(array('form_validation'));
+
+
+$this->siteName ="CBT";
+$this->descriptions ="Examnation Software";
+$this->author ="author Name";
+$this->keywords="aut, Name";
+
 }
 
 
