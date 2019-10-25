@@ -43,33 +43,6 @@ $data["author"] ="Ojeyinka olaniyi philip";
 $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
 Examnation Candidates";
 $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
-$data['subjects'] = $this->dashboard_model->get_avail_subject();
-
-     $data['num_of_topics'] = $this->board_model->count_topics();
-      $data['num_of_comments'] = $this->board_model->count_comments();
-      $data['last_post_time'] = date( "F j, Y, g:i a",$this->board_model->get_last_time_of_post());
-      $data['last_comment_time'] = date( "F j, Y, g:i a",$this->board_model->get_last_time_of_comment());
-      $data['total_views'] = $this->board_model->count_views();
-$data['num_of_users'] =  count($this->users_model->get_users(NULL,NULL));
-$data['num_of_free_users'] = $this->users_model->count_account_type("free",NULL,NULL);
-$data['num_of_premium_users'] = $this->users_model->count_account_type("premium",NULL,NULL);
-$data['no_guests'] = count(online_users($this->board_model->get_guests()));
-$data['no_online'] = count(online_users($this->users_model->get_users(NULL,NULL)));
-$data['num_of_premium_questions'] = $this->question_model->count_questions("premium");
-$data['num_of_free_questions'] = $this->question_model->count_questions("free");
-$data['num_of_total_questions'] = $this->question_model->count_questions(NULL);
-$data['num_of_users_24'] = count($this->users_model->count_users_reg_at_time(86400));
-$data['num_of_users_online_24'] = count($this->users_model->count_users_online_at_time(86400));
-$data['num_of_users_online_30d'] = count($this->users_model->count_users_online_at_time(2592000));
-$data['num_of_questions_24'] = count($this->question_model->count_questions_added_at_time(86400));
-$data['num_of_guests_24'] = count($this->board_model->count_guest_online_at_time(86400));
-$data['num_of_topics_24'] = count($this->board_model->count_topics_added_at_time(86400));
-$data['num_of_circles'] = $this->circle_model->count_circle_for_admin();
-$data['num_of_messages'] = $this->circle_model->count_circle_messages();
-$data['num_of_circles_online_24'] = $this->circle_model->count_circles_added_at_time(86400);
-$data['num_of_messages_online_24'] = $this->circle_model->count_messages_added_at_time(86400);
-$data['num_of_users_up_24'] = count($this->users_model->count_users_upgraded_at_time(86400));
-$data['num_of_users_up_30d'] = count($this->users_model->count_users_upgraded_at_time(2592000));
 
 	$this->load->view('/admin/header_view',$data);
 
