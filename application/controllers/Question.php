@@ -136,23 +136,6 @@ show_page('question/index');
 
 public function question_page()
 {
-if(!isset($_SESSION['start_time']))
-{
-  $_SESSION['start_time'] = time();
-}
-  if(!isset($_SESSION['running']))
-  {
-    show_page('question/index');
-  }
-
-  if(isset($_SESSION['timeout']) || isset($_SESSION['submit']))
-  {
-    show_page('question/submit');
-  }
-
-  $v_slug = "question/s0_question_page";
-    $this->board_model->insert_view($v_slug);
-
 
 
   $data['subject_items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
