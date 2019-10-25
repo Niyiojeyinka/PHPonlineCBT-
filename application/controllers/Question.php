@@ -204,12 +204,12 @@ $_SESSION['correct_answers']["s0_question_page"][$i])
 }
   
 //save result to db later here
+//check here if to release result immediately or not
+            $data["title"] = $this->siteName." |  Results";
+            $data["keywords"] =$this->keywords;
+            $data["author"] =$this->author;
+           $data["descriptions"] =$this->descriptions;
 
-        $data["title"] ="CBT | Results";
-        $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
-        $data["author"] ="Ojeyinka olaniyi philip";
-       $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
-       Examnation Candidates";
        $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
        $data['items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
        $data['user_details'] = $this->users_model->get_user_by_id();
