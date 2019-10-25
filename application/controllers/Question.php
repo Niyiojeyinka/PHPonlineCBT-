@@ -392,15 +392,9 @@ show_page('question/submit');
 
 public function submit()
 {
-$_SESSION['s3_score'] = 0;
+$_SESSION['score'] = 0;
 
-  foreach($_SESSION['user_answers'] as $key => $value[])
-  {
-  //$key=s1_question_page etc whilevalue is array of answers
-
-  switch ($key) {
-    case 's0_question_page':
-    if(count($_SESSION['user_answers']["s0_question_page"]) !=0)
+  if(count($_SESSION['user_answers']["s0_question_page"]) !=0)
     {
 for($i =0;$i<count($_SESSION['user_answers']["s0_question_page"]);$i++)
 {
@@ -415,69 +409,7 @@ $_SESSION['correct_answers']["s0_question_page"][$i])
   $_SESSION['s0_score'] = 0;
 
 }
-      break;
-      case 's1_question_page':
-       if(count($_SESSION['user_answers']["s1_question_page"]) !=0)
-        {
-    for($i =0;$i<count($_SESSION['user_answers']["s1_question_page"]);$i++)
-    {
-    if($_SESSION['user_answers']["s1_question_page"][$i] ==
-    $_SESSION['correct_answers']["s1_question_page"][$i])
-    {
-      $_SESSION['s1_score'] = $_SESSION['s1_score'] + 1;
-    }
-
-    }
-    }else {
-      $_SESSION['s1_score'] = 0;
-
-    }
-
-        break;
-        case 's2_question_page':
-        if(count($_SESSION['user_answers']["s2_question_page"]) !=0)
-         {
-     for($i =0;$i<count($_SESSION['user_answers']["s2_question_page"]);$i++)
-     {
-     if($_SESSION['user_answers']["s2_question_page"][$i] ==
-     $_SESSION['correct_answers']["s2_question_page"][$i])
-     {
-       $_SESSION['s2_score'] = $_SESSION['s2_score'] + 1;
-     }
-
-     }
-     }else {
-       $_SESSION['s2_score'] = 0;
-
-     }
-
-
-          break;
-    case 's3_question_page':
-    if(count($_SESSION['user_answers']["s3_question_page"]) !=0)
-     {
- for($i =0;$i<count($_SESSION['user_answers']["s3_question_page"]);$i++)
- {
- if($_SESSION['user_answers']["s3_question_page"][$i] ==
- $_SESSION['correct_answers']["s3_question_page"][$i])
- {
-   $_SESSION['s3_score'] = $_SESSION['s3_score'] + 1;
- }
-
- }
- }else {
-   $_SESSION['s3_score'] = 0;
-
- }
-
-
-      break;
-
-  }//switch
-
-}//foreach
-
-
+  
 //save result to db later here
 
         $data["title"] ="CBT | Results";
