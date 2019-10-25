@@ -52,7 +52,7 @@ public function single_page($slug = NULL)
         }
 
 
-        $data['title'] = 'Pryce | '.$data['item']['title'];
+        $data['title'] = $this->siteName. ' | '.$data['item']['title'];
       $data['keywords'] = $data['item']['keywords'];
       $data['keywords'] = $data['item']['description'];
       $data['author'] = $data['item']['author'];
