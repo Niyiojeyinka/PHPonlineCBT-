@@ -21,6 +21,7 @@ public function __construct()
 $this->siteName ="CBT";
 $this->descriptions ="Examnation Software";
 $this->author ="author Name";
+$this->keywords= "the, keywords";
 }
 
 	public function register($slug = null)
