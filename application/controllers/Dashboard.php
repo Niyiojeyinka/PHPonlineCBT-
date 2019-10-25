@@ -24,7 +24,7 @@ public function __construct()
 
       if (!isset($this->session->id) || !isset($this->session->logged_in))
        {      header('Location: '.base_url().'index.php/users/login');     }
-     
+
 
 $this->siteName ="CBT";
 $this->descriptions ="Examnation Software";
@@ -39,10 +39,10 @@ $this->author ="author Name";
 public function index($slug = null)
 {
 
-        $data["title"] ="CBT | The Online Student Resources Center";
-        $data["keywords"] ="Take,test ";
-        $data["author"] ="Ojeyinka olaniyi philip";
-       $data["descriptions"] ="descriptions";
+     $data["title"] = $this->siteName." | Welcome";
+               $data["keywords"] ="";
+               $data["author"] =$this->author;
+              $data["descriptions"] =$this->descriptions;
        $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
        $data['user_details'] = $this->users_model->get_user_by_id();
 
