@@ -186,22 +186,7 @@ public function submit()
 {
 $_SESSION['score'] = 0;
 
-  if(count($_SESSION['user_answers']["s0_question_page"]) !=0)
-    {
-for($i =0;$i<count($_SESSION['user_answers']["s0_question_page"]);$i++)
-{
-if($_SESSION['user_answers']["s0_question_page"][$i] ==
-$_SESSION['correct_answers']["s0_question_page"][$i])
-{
-  $_SESSION['s0_score'] = $_SESSION['s0_score'] + 1;
-}
-
-}
-}else {
-  $_SESSION['s0_score'] = 0;
-
-}
-  
+    
 //save result to db later here
 //check here if to release result immediately or not
             $data["title"] = $this->siteName." |  Results";
