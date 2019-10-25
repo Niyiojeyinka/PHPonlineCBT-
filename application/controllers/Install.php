@@ -116,6 +116,15 @@ class Install extends CI_Controller {
         time_allowed varchar(128),
         time int(20),
         PRIMARY KEY (id)
+);",
+"CREATE TABLE test_session (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        user_id varchar(128),
+        answers text, 
+        time_start varchar(128),
+        time_end varchar(128),
+        time int(20),
+        PRIMARY KEY (id)
 );"
     );
        
