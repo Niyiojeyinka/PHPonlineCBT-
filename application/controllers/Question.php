@@ -158,11 +158,10 @@ if(!isset($_SESSION['start_time']))
   $data['subject_items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
 
 
-           $data["title"] ="CBT | ".$data['subject_items'][0]." Examination";
-           $data["keywords"] ="CBT,jamb,utme,examination,Nigeria,past questions,answer,notes";
-           $data["author"] ="Ojeyinka olaniyi philip";
-           $data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
-           Examnation Candidates";
+          $data["title"] = $this->siteName." | Examination";
+               $data["keywords"] ="";
+               $data["author"] =$this->author;
+              $data["descriptions"] =$this->descriptions;
            $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
            $data['user_details'] = $this->users_model->get_user_by_id();
 
