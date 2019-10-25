@@ -4,6 +4,6 @@
 <br></br>
 <span class="w3-medium">Click the button below to continue </span>
 <br></br>
-<a class="w3-button w3-indio w3-large" href="<?=site_url("questions/start") ?>">Start</a>
+<a class="w3-button w3-indio w3-large" href="<?=site_url("question/start") ?>">Start</a>
 
 </div>
