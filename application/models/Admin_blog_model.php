@@ -1,5 +1,3 @@
-
-
 <?php
 
 class Admin_blog_model extends CI_Model {
