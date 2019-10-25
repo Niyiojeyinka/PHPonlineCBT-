@@ -32,7 +32,7 @@ class Install extends CI_Controller {
 "CREATE TABLE questions (
         id int(11) NOT NULL AUTO_INCREMENT,
         subject varchar(128),
-         year varchar(128),
+        year varchar(128),
         answer varchar(128),
         question_img varchar(128),
         account_type varchar(128),
@@ -51,8 +51,9 @@ class Install extends CI_Controller {
         instructions text,
         explanation text,
         status varchar(128),
-         author varchar(128),
-         time int(20),
+        author varchar(128),
+        test_id varchar(255),
+        time int(20),
          PRIMARY KEY (id)
 );",
 "CREATE TABLE media (
