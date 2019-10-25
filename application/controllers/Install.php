@@ -123,6 +123,7 @@ class Install extends CI_Controller {
         answers text, 
         time_start varchar(128),
         time_end varchar(128),
+        status varchar(128),
         time int(20),
         PRIMARY KEY (id)
 );"
