@@ -97,6 +97,7 @@ class Install extends CI_Controller {
         time_used_percentage varchar(128),
         start_time varchar(128),
         time_allowed varchar(128),
+        test_id varchar(128),
          PRIMARY KEY (id)
 );", "CREATE TABLE subjects (
         id int(11) NOT NULL AUTO_INCREMENT,
