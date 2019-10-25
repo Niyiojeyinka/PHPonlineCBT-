@@ -110,6 +110,7 @@ class Install extends CI_Controller {
 "CREATE TABLE tests (
         id int(11) NOT NULL AUTO_INCREMENT,
         name varchar(128),
+        questions text, 
         time_start varchar(128),
         time_end varchar(128),
         time_allowed varchar(128),
