@@ -12,6 +12,9 @@
 <label for="test_end" class="w3-label">Time End</label><br>
 <input type='text' name='test_end' class='w3-padding'/>
 <br>
+<label for="time_allowed" class="w3-label">Time Allowed</label><br>
+<input type='text' name='time_allowed' class='w3-padding'/>
+<br>
 
 
 
