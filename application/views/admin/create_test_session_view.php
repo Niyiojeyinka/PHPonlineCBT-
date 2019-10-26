@@ -9,7 +9,9 @@
 <label for="test_start" class="w3-label">Time Start</label><br>
 <input type='text' name='test_start' class='w3-padding'/>
 <br>
-
+<label for="test_end" class="w3-label">Time End</label><br>
+<input type='text' name='test_end' class='w3-padding'/>
+<br>
 
 
 
