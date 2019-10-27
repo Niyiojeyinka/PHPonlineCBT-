@@ -56,9 +56,6 @@ $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
 	$this->load->view('admin/first_view',$data);
 	$this->load->view('admin/footer_view');
 
-
-
-
 }
 
 public function our_users($offset = 0) {
