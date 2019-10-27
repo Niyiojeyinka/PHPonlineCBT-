@@ -24,12 +24,9 @@ class Team_model extends CI_Model {
 public function login_check()
 {
 
-
-
-
  $this->db->select('password');
-$query = $this->db->get_where('team',array("username" => $this->input->post("name")));
-$_pass = $this->input->post('pass');
+$query = $this->db->get_where('team',array("username" => $this->input->post("username")));
+$_pass = $this->input->post('password');
 if (in_array($_pass,$query->row_array()))
 { return true;
 }
