@@ -78,7 +78,7 @@ public function start($slug = null)
           $this->load->view('user/common/users_nav_view',$data);
           $this->load->view('common/header_view',$data);
           $this->load->view('user/common/pre_content_view',$data);
-           $this->load->view('user/first_option_view',$data);
+           $this->load->view('user/first_view',$data);
            $this->load->view('user/common/post_content_view',$data);
       $this->load->view('common/footer_view',$data);
 
