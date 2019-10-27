@@ -71,4 +71,10 @@ public function single_page($slug = NULL)
 
 }
 
+public function admin_login(){
+
+
+
+}
+
 }
