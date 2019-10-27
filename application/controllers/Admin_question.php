@@ -14,7 +14,7 @@ public function __construct()
      //  session_start();
      	//get this from db later
 
-   if ( !isset($this->session->logged_in))
+   if ( !isset($this->session->admin_logged_in))
   {
 
 show_page("admin/enter");
