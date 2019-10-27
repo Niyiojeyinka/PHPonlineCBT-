@@ -72,7 +72,6 @@ public function start($slug = null)
             $data["author"] =$this->author;
            $data["descriptions"] =$this->descriptions;
            $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
-       $data['items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
        $data['user_details'] = $this->users_model->get_user_by_id();
 
       $this->load->view('common/headmeta_view',$data);
