@@ -55,12 +55,6 @@ public function index($slug = null)
            $this->load->view('user/first_view',$data);
            $this->load->view('user/common/post_content_view',$data);
       $this->load->view('common/footer_view',$data);
-
-
-
-
-
-
 }
 
 
