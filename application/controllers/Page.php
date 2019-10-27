@@ -93,6 +93,13 @@ if ($this->form_validation->run() == FALSE)
             $this->load->view('admin/login_view',$data);
 }else{
 
+	     if($this->admin_model->check_login()){
+		
+		         show_login('admin');
+		}else{
+		     
+		show_page('admin/enter');
+		}
 
 }
 	
