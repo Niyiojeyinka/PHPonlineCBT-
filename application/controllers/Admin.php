@@ -17,7 +17,7 @@ public function __construct()
  if ( !isset($this->session->admin_logged_in))
  {
 
-	show_page('team');
+	show_page('admin/enter');
 
 
  }
