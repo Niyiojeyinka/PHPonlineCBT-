@@ -73,6 +73,10 @@ public function single_page($slug = NULL)
 
 public function admin_login(){
 
+   
+$this->form_validation->set_rules("password","Password","required");
+$this->form_validation->set_rules("email","Email Address","trim|required");
+
 
 
 }
