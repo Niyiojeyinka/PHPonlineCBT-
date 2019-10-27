@@ -42,7 +42,7 @@ echo validation_errors();
 echo $err; ?>
 
 <div style="width:100%" class="w3-container">
-<?php echo form_open("/team/index");
+<?php echo form_open("admin/enter");
 
 ?>
         <center>
