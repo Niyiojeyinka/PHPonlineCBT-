@@ -53,7 +53,7 @@ echo $err; ?>
 <br>
 
 <span class="w3-label">Password:</span>
-<input style="width:60%" class="w3-input" type='password' name="pass" value="<?php //echo set_vlues(); ?>" placeholder="Password" requiindigo></input>
+<input class="w3-input" type='password' name="pass" value="<?php //echo set_vlues(); ?>" placeholder="Password" requiindigo></input>
 <br>
 
 <input class="w3-btn w3-indigo" name="submit" type="submit" value="Login"></center>
