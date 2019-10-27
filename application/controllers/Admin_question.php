@@ -17,8 +17,7 @@ public function __construct()
    if (!isset($this->session->name) || !isset($this->session->logged_in))
   {
 
-
-     header('Location: '.base_url().'index.php/team/');
+show_page("admin/enter");
 
 
 
