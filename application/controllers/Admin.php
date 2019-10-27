@@ -61,7 +61,19 @@ $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
       public function create_test(){
 	//a method to create a test session
 	
-	
+	            $data["title"] = $this->siteName." | Create New Test Session";
+            $data["keywords"] =$this->keywords;
+            $data["author"] =$this->author;
+           $data["descriptions"] =$this->descriptions;
+$data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
+
+	$this->load->view('/admin/header_view',$data);
+
+	$this->load->view('admin/sidebar_view',$data);
+
+	$this->load->view('admin/create_test_session_view',$data);
+	$this->load->view('admin/footer_view');
+
 	}
 public function our_users($offset = 0) {
 
