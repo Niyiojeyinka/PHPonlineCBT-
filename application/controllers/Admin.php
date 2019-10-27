@@ -58,7 +58,7 @@ $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
 
 }
 
-      public function create_test(){
+public function create_test(){
 	//a method to create a test session
 	
 	            $data["title"] = $this->siteName." | Create New Test Session";
