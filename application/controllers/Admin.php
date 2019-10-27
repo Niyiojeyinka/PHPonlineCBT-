@@ -121,19 +121,10 @@ $this->load->view('/admin/header_view',$data);
 public function add_common()
 {
 
-
-
-
 	    $data['items'] = $this->pages_model->get_commons();
-
-
-
-
 
     $this->form_validation->set_rules("position","Common Element Position",
   "required"/*|is_unique[common_tab.position]*/);
-
-
 
 	if($this->form_validation->run() == FALSE)
 	{
@@ -153,9 +144,6 @@ public function add_common()
 
 						$this->load->view('admin/add_common_view',$data);
 		$this->load->view('admin/footer_view');
-
-
-
 
 	}else{
 	//show next:input to db
