@@ -60,9 +60,6 @@ return TRUE;
 	public function add_question()
 	{
 
-
-
-
      $this->form_validation->set_rules("subject","Subject","required");
      $this->form_validation->set_rules("year","Question Year","required");
      $this->form_validation->set_rules("answer","Answer","required");
