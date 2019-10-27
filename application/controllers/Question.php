@@ -58,45 +58,6 @@ public function index($slug = null)
 }
 
 
-public function timed_test($slug = null)
-{
-  
-
-     		$this->form_validation->set_rules("type","Test Type","required");
-
-    if ($this->form_validation->run() == TRUE)
-    {
-      $acct_type = $this->users_model->get_user_by_id()['acct_type'];
-  
-
-       
-            $data["title"] = $this->siteName." | Timed Examination";
-            $data["keywords"] =$this->keywords;
-            $data["author"] =$this->author;
-           $data["descriptions"] =$this->descriptions;
-           $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
-         $data['items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
-         $data['user_details'] = $this->users_model->get_user_by_id();
-
-
-        $this->load->view('common/headmeta_view',$data);
-            $this->load->view('user/common/users_nav_view',$data);
-            $this->load->view('common/header_view',$data);
-            $this->load->view('user/common/pre_content_view',$data);
-             $this->load->view('user/pre_test_view',$data);
-             $this->load->view('user/common/post_content_view',$data);
-        $this->load->view('common/footer_view',$data);
-    }//close form validation true block
-else{
-
-show_page('question/index');
-}
-
-
-}
-
-
-
 
 
 
