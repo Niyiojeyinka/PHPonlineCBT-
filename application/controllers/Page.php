@@ -79,6 +79,28 @@ $this->form_validation->set_rules("username","Username","trim|required");
 
 
 
+if ($this->form_validation->run() == FALSE)
+{
+
+
+  	  	//login page
+
+
+               $data["title"] = $this->siteName." | Admin Login";
+               $data["keywords"] =$this->keywords;
+               $data["author"] =$this->author;
+              $data["descriptions"] =$this->descriptions;
+            $this->load->view('admin/login_view',$data);
+}else{
+
+
+}
+	
+	
+	
+	
+
+
 }
 
 }
