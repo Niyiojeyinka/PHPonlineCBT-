@@ -97,6 +97,9 @@ if ($this->form_validation->run() == FALSE)
 		
 		         show_login('admin');
 		}else{
+			
+				$_SESSION['error_status_report'] ="<span class='w3-text-red'>Incorrect login details</span>";
+		$this->session->mark_as_flash('error_status_report');
 		     
 		show_page('admin/enter');
 		}
