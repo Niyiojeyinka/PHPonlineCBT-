@@ -6,7 +6,7 @@ class Page extends CI_Controller {
 public function __construct()
 {
      parent::__construct();
-     $this->load->model(array('users_model','pages_model','admin_model'));
+     $this->load->model(array('users_model','pages_model','team_model'));
      $this->load->helper(array('url','form','page_helper'));
      $this->load->library(array('form_validation'));
 
@@ -93,7 +93,7 @@ if ($this->form_validation->run() == FALSE)
             $this->load->view('admin/login_view',$data);
 }else{
 
-	     if($this->admin_model->check_login()){
+	     if($this->team_model->check_login()){
 		
 		         show_login('admin');
 		}else{
