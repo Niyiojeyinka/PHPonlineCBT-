@@ -43,11 +43,10 @@ public function index() {
 
 
 
-$data["title"] ="Pryce | Admin Dashboard";
-$data["keywords"] ="Pryce,jamb,utme,examination,Nigeria,past questions,answer,notes";
-$data["author"] ="Ojeyinka olaniyi philip";
-$data["descriptions"] ="The online Education Platform for Student and Unified Tertiary Matriculation
-Examnation Candidates";
+            $data["title"] = $this->siteName." | Admin Dashboard";
+            $data["keywords"] =$this->keywords;
+            $data["author"] =$this->author;
+           $data["descriptions"] =$this->descriptions;
 $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
 
 	$this->load->view('/admin/header_view',$data);
