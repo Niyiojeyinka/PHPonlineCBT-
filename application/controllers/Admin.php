@@ -61,11 +61,11 @@ $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
 public function create_test(){
 	//a method to create a test session
 	
-	            $data["title"] = $this->siteName." | Create New Test Session";
+	          $data["title"] = $this->siteName." | Create New Test Session";
             $data["keywords"] =$this->keywords;
             $data["author"] =$this->author;
-           $data["descriptions"] =$this->descriptions;
-$data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
+            $data["descriptions"] =$this->descriptions;
+            $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
 
 	$this->load->view('/admin/header_view',$data);
 
