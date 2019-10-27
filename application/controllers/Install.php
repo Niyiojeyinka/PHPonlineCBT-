@@ -132,6 +132,7 @@ class Install extends CI_Controller {
         id int(11) NOT NULL AUTO_INCREMENT,
         username varchar(128),
         password varchar(128),
+        role_id int(10),
         status varchar(128),
         time int(20),
         PRIMARY KEY (id)
