@@ -75,7 +75,7 @@ public function admin_login(){
 
    
 $this->form_validation->set_rules("password","Password","required");
-$this->form_validation->set_rules("email","Email Address","trim|required");
+$this->form_validation->set_rules("username","Username","trim|required");
 
 
 
