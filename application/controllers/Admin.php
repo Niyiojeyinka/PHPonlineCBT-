@@ -166,23 +166,12 @@ public function add_common()
 	}
 
 
-
-
 	}
-
-
-
-
-
-		}
-
-
+	}
 
 
 	public function edit_common($id =NULL)
 	{
-
-
 
 //get common from db here
 
