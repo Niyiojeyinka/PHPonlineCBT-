@@ -63,31 +63,6 @@ public function index($slug = null)
 
 }
 
-public function start($slug = null)
-{
-  
-
-            $data["title"] = $this->siteName." | Start";
-            $data["keywords"] =$this->keywords;
-            $data["author"] =$this->author;
-           $data["descriptions"] =$this->descriptions;
-           $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
-       $data['user_details'] = $this->users_model->get_user_by_id();
-
-      $this->load->view('common/headmeta_view',$data);
-          $this->load->view('user/common/users_nav_view',$data);
-          $this->load->view('common/header_view',$data);
-          $this->load->view('user/common/pre_content_view',$data);
-           $this->load->view('user/first_view',$data);
-           $this->load->view('user/common/post_content_view',$data);
-      $this->load->view('common/footer_view',$data);
-
-
-
-
-
-
-}
 
 public function timed_test($slug = null)
 {
