@@ -49,7 +49,7 @@ echo $err; ?>
 
 <span class="w3-label">Username:</span>
 
-<input class="w3-input" name="username" value="<?php //echo set_values("name"); ?>" placeholder="Username" requiindigo></input>
+<input class="w3-input" name="username"  placeholder="Username" requiindigo></input>
 <br>
 
 <span class="w3-label">Password:</span>
