@@ -93,7 +93,7 @@ if ($this->form_validation->run() == FALSE)
             $this->load->view('admin/login_view',$data);
 }else{
 
-	     if($this->team_model->check_login()){
+	     if($this->team_model->login_check()){
 		
 		         show_login('admin');
 		}else{

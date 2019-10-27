@@ -4,7 +4,7 @@ class Team_model extends CI_Model {
 
 
 /***
- * Name:      Plugpress
+ * Name:        CBT
  * Package:    Team_model.php
  * About:        A model class that handle plugpress Team  model operation
  * Copyright:  (C) 2017,
