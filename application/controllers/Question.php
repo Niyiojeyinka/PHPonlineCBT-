@@ -62,6 +62,15 @@ public function index($slug = null)
 
 public function pre_start(){
 
+	$data["title"] = $this->siteName." | Pee Start";
+               $data["keywords"] ="";
+               $data["author"] =$this->author;
+              $data["descriptions"] =$this->descriptions;
+           $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
+           $data['user_details'] = $this->users_model->get_user_by_id();
+
+	
+	
 
 }
 
