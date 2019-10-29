@@ -60,7 +60,10 @@ public function index($slug = null)
 
 
 
+public function pre_start(){
 
+
+}
 
 public function question_page()
 {
