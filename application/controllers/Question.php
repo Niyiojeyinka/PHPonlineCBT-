@@ -69,9 +69,6 @@ public function question_page()
 {
 
 
-  $data['subject_items'] =   json_decode($this->users_model->get_user_by_id()['subjects']);
-
-
           $data["title"] = $this->siteName." | Examination";
                $data["keywords"] ="";
                $data["author"] =$this->author;
