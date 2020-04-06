@@ -93,7 +93,8 @@ class Install extends CI_Controller {
         test_id varchar(128),
         time int(20) NOT NULL,
          PRIMARY KEY (id)
-);", "CREATE TABLE subjects (
+);",
+ "CREATE TABLE subjects (
         id int(11) NOT NULL AUTO_INCREMENT,
         name varchar(128),
         short_name varchar(128),
@@ -104,6 +105,8 @@ class Install extends CI_Controller {
         id int(11) NOT NULL AUTO_INCREMENT,
         name varchar(128),
         questions text, 
+        instructions text, 
+        subject_id int(3),
         test_start varchar(128),
         test_end varchar(128),
         time_allowed varchar(128),
