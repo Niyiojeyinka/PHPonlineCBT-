@@ -71,7 +71,7 @@ class Install extends CI_Controller {
     PRIMARY KEY (id)
 );",
 "INSERT INTO system_var (variable_name,variable_value) 
-VALUES ('test_control','{\'next_test_id\':1}')
+VALUES ('next_test_id','1')
 , ('site_meta','{\"siteName\":\"CBT\",\"description\":\"A cbt software\"}');"
 ,
 "CREATE TABLE history (

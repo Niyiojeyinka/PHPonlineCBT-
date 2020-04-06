@@ -64,7 +64,7 @@ public function start(){
 public function question(){
 
     $data["title"] = $this->siteName." | Test";
-    $data['next_test']= $this->dashboard_model->get_next_test();
+    $data['next_test']= $this->dashboard_model->get_next_test_id();
 
     $this->template('user/pre_start_view',$data);
 }

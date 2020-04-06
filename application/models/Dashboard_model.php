@@ -22,9 +22,9 @@ class Dashboard_model extends CI_Model {
 
 public function get_next_test_id()
 {
- $test_id_row = $this->db->get_where("system_var",["variable_name"=>"test_control"])->row_array()['variable_value'];
- return json_decode($test_id_row,true)['next_test_id'];
+ $test_id = $this->db->get_where("system_var",["variable_name"=>"next_test_id"])->row_array()['variable_value'];
  
+ return (int) $test_id;
 }
 
 public function get_next_test()
