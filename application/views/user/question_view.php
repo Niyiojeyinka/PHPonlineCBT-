@@ -11,9 +11,9 @@
 
   <div class="w3-cell">
     <script>
-    var t = setInterval(thePryceTimer, 1000);
+    var t = setInterval(theCBTTimer, 1000);
 
-  function thePryceTimer() {
+  function theCBTTimer() {
     //var p = new Date();
     //document.getElementById("time_div").innerHTML = p.toLocaleTimeString();
     d = new Date();
@@ -89,7 +89,7 @@ $slug = 'question/s'.$key.'_question_page/';
 
       <div id="containerc" style='max-width:600px;' class="w3-modal">
        <div class="w3-modal-content w3-theme">
-         <header class="w3-container w3-center"><h2>Pryce's Calculator</h2>
+         <header class="w3-container w3-center"><h2>CBT's Calculator</h2>
            <span onclick="document.getElementById('containerc').style.display='none'"
            class="w3-button w3-display-topright">&times;</span>
 
@@ -104,7 +104,7 @@ $slug = 'question/s'.$key.'_question_page/';
 </div>
 
              <footer class="w3-container w3-theme">
-               <p>&copy; Pryce <?php
+               <p>&copy; CBT <?php
               if (date('y') == 18)
               {
               echo "20".date('y');
@@ -163,7 +163,7 @@ echo " style='max-width:200px;max-height:250px' src='".base_url("assets/question
 
  <div id="container0" style='max-width:600px;display:none;' class="w3-modal">
   <div class="w3-modal-content w3-theme">
-    <header class="w3-container w3-center"><h2>Pryce</h2>
+    <header class="w3-container w3-center"><h2>CBT</h2>
       <span onclick="document.getElementById('container0').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
 
@@ -181,7 +181,7 @@ echo "<img class='w3-margin' style='max-width:500px;max-height:550px' src='".bas
         </div>
 
         <footer class="w3-container w3-center w3-theme">
-          <p>&copy; Pryce <?php
+          <p>&copy; CBT <?php
          if (date('y') == 18)
          {
          echo "20".date('y');

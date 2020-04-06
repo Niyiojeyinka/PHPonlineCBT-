@@ -2,7 +2,7 @@
 
 
 /***
- * Name:       Pryce
+ * Name:       CBT
  * Package:     blog_helper.php
  * About:       blog_helper 
  * Copyright:  (C) 2018,

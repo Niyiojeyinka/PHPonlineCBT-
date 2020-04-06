@@ -4,9 +4,9 @@ class Admin_blog_model extends CI_Model {
 
 
 /***
- * Name:      Pryce
+ * Name:      CBT
  * Package:    Team_model.php
- * About:        A model class that handle Pryce Team  model operation
+ * About:        A model class that handle CBT Team  model operation
  * Copyright:  (C) 2018,
  * Author:     Ojeyinka Philip Olaniyi
  * License:    closed /propietry

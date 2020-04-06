@@ -9,7 +9,7 @@
 <meta name="keywords" content="<?php
 echo $keywords;
 ?>">
-<link rel="shortcut icon" href="<?php echo base_url('assets/images/Prycefavicon.png'); ?>" />
+<link rel="shortcut icon" href="<?php echo base_url('assets/images/CBTfavicon.png'); ?>" />
 
 
 <meta property="og:image" content="<?php

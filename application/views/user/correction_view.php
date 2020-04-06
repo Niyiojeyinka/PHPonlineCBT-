@@ -7,7 +7,7 @@
 
         <div id="containerc" style='max-width:600px;' class="w3-modal">
          <div class="w3-modal-content w3-theme">
-           <header class="w3-container w3-center"><h2>Pryce's Calculator</h2>
+           <header class="w3-container w3-center"><h2>CBT's Calculator</h2>
              <span onclick="document.getElementById('containerc').style.display='none'"
              class="w3-button w3-display-topright">&times;</span>
 
@@ -22,7 +22,7 @@
   </div>
 
                <footer class="w3-container w3-theme">
-                 <p>&copy; Pryce <?php
+                 <p>&copy; CBT <?php
                 if (date('y') == 18)
                 {
                 echo "20".date('y');

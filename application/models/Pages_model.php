@@ -4,9 +4,9 @@ class Pages_model extends CI_Model {
 
 
 /***
- * Name:      Pryce
+ * Name:      CBT
  * Package:    Pages_model.php
- * About:        A model class that handle Pryce's  model operation
+ * About:        A model class that handle CBT's  model operation
  * Copyright:  (C) 2017,
  * Author:     Ojeyinka Philip Olaniyi
  * License:    closed /propietry

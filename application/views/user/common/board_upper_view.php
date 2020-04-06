@@ -1,5 +1,5 @@
 <div class="w3-container w3-center">
-<span class="w3-text-theme w3-large"><a href='<?php echo site_url('board'); ?>'>Pryce's Board</a></span><br>
+<span class="w3-text-theme w3-large"><a href='<?php echo site_url('board'); ?>'>CBT's Board</a></span><br>
 <span class="w3-text-theme w3-small">Statistics</span><br>
 <div class="w3-cell-row w3-small">
   <div class="w3-cell">

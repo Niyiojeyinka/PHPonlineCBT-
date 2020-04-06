@@ -33,7 +33,7 @@ echo $keyw.',';
 
 <div style="width:100%;height:100%" class="w3-container w3-light-grey w3-text-blue-grey">
 
-    <div style="width:60%;height:10%" class="w3-container w3-card w3-white"><b style="width:55%;height:10%" class="w3-text-indigo"><a href="<?php echo site_url();?>">Pryce Ng </a></b>
+    <div style="width:60%;height:10%" class="w3-container w3-card w3-white"><b style="width:55%;height:10%" class="w3-text-indigo"><a href="<?php echo site_url();?>">CBT Ng </a></b>
 </div>
 </center>
 
@@ -66,7 +66,7 @@ echo $err; ?>
 <div style="padding:12%" class="w3-contaner w3-indigo w3-text-white">
 <center><div style="width:60%" class="">
 
-All right reserved<span class="w3-large">|</span>A Pryce Ng Internet ltd<br>
+All right reserved<span class="w3-large">|</span>A CBT Ng Internet ltd<br>
 <?php
 if (date('y') == 17)
 {

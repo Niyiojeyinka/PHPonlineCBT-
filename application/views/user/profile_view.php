@@ -22,7 +22,7 @@
 
         ?>' class="w3-modal">
        <div class="w3-modal-content w3-theme">
-         <header class="w3-container"><h2>Pryce</h2>
+         <header class="w3-container"><h2>CBT</h2>
            <span onclick="document.getElementById('container0').style.display='none'"
            class="w3-button w3-display-topright">&times;</span>
 
@@ -59,7 +59,7 @@
              </div>
 
              <footer class="w3-container w3-theme">
-               <p>&copy; Pryce <?php
+               <p>&copy; CBT <?php
               if (date('y') == 18)
               {
               echo "20".date('y');
@@ -103,7 +103,7 @@ echo 'display:block';
 
     ?>' class="w3-modal">
    <div class="w3-modal-content w3-theme">
-     <header class="w3-container"><h2>Pryce</h2>
+     <header class="w3-container"><h2>CBT</h2>
        <span onclick="document.getElementById('container1').style.display='none'"
        class="w3-button w3-display-topright">&times;</span>
 
@@ -139,7 +139,7 @@ echo 'display:block';
          </div>
 
          <footer class="w3-container w3-theme">
-           <p>&copy; Pryce <?php
+           <p>&copy; CBT <?php
           if (date('y') == 18)
           {
           echo "20".date('y');
@@ -183,7 +183,7 @@ echo 'display:block';
 
   ?>' class="w3-modal">
  <div class="w3-modal-content w3-theme">
-   <header class="w3-container"><h2>Pryce</h2>
+   <header class="w3-container"><h2>CBT</h2>
      <span onclick="document.getElementById('container2').style.display='none'"
      class="w3-button w3-display-topright">&times;</span>
 
@@ -217,7 +217,7 @@ echo 'display:block';
        </div>
 
        <footer class="w3-container w3-theme">
-         <p>&copy; Pryce <?php
+         <p>&copy; CBT <?php
         if (date('y') == 18)
         {
         echo "20".date('y');
@@ -278,7 +278,7 @@ class="w3-button w3-text-theme" >Edit</a>
 
 <div id="container3" style='max-width:600px' class="w3-modal">
  <div class="w3-modal-content w3-theme">
-   <header class="w3-container"><h2>Pryce</h2>
+   <header class="w3-container"><h2>CBT</h2>
      <span onclick="document.getElementById('container3').style.display='none'"
      class="w3-button w3-display-topright">&times;</span>
 
@@ -345,7 +345,7 @@ class="w3-button w3-text-theme" >Edit</a>
        </div>
 
        <footer class="w3-container w3-theme">
-         <p>&copy; Pryce <?php
+         <p>&copy; CBT <?php
         if (date('y') == 18)
         {
         echo "20".date('y');
@@ -384,7 +384,7 @@ echo 'display:block';
 
   ?>' class="w3-modal">
  <div class="w3-modal-content w3-theme">
-   <header class="w3-container"><h2>Pryce</h2>
+   <header class="w3-container"><h2>CBT</h2>
      <span onclick="document.getElementById('container4').style.display='none'"
      class="w3-button w3-display-topright">&times;</span>
 
@@ -421,7 +421,7 @@ echo 'display:block';
        </div>
 
        <footer class="w3-container w3-theme">
-         <p>&copy; Pryce <?php
+         <p>&copy; CBT <?php
         if (date('y') == 18)
         {
         echo "20".date('y');

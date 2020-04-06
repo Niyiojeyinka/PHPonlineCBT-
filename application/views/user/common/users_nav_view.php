@@ -43,7 +43,7 @@ echo site_url('Dashboard_ext/subject_comb');
      <a class="w3-bar-item w3-button w3-border" href="<?php
      echo site_url('Dashboard/purse');
      ?>">  <i  style='margin-right:3%' class="fa fa-get-pocket
-        w3-large w3-text-theme w3-center"></i>Pryce Purse</a>
+        w3-large w3-text-theme w3-center"></i>CBT Purse</a>
 
       <a class="w3-bar-item w3-button w3-border" href="<?php
     echo site_url('Dashboard/payment');
