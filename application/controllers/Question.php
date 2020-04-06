@@ -34,6 +34,11 @@ public function __construct()
 
 public function template($view_name,$data)
 {
+    $data["keywords"] =$this->keywords;
+    $data["author"] =$this->author;
+    $data["descriptions"] =$this->descriptions;
+    $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
+    $data['user_details'] = $this->users_model->get_user_by_id();
 
     $this->load->view('common/headmeta_view',$data);
     $this->load->view('user/common/users_nav_view',$data);
@@ -46,16 +51,7 @@ public function template($view_name,$data)
 
 public function index($slug = null)
 {
-  
-
-
             $data["title"] = $this->siteName." | Computer Based Test";
-            $data["keywords"] =$this->keywords;
-            $data["author"] =$this->author;
-            $data["descriptions"] =$this->descriptions;
-            $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
-            $data['user_details'] = $this->users_model->get_user_by_id();
-
             $this->template('user/first_view',$data);
 
 }
@@ -63,14 +59,6 @@ public function index($slug = null)
 public function start(){
 
 	        $data["title"] = $this->siteName." | Pre Start";
-            $data["keywords"] ="";
-            $data["author"] =$this->author;
-            $data["descriptions"] =$this->descriptions;
-            $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
-            $data['user_details'] = $this->users_model->get_user_by_id();
-            $data['next_test']= $this->dashboard_model->get_next_test();
-
-            
             $this->template('user/pre_start_view',$data);
 
 }
