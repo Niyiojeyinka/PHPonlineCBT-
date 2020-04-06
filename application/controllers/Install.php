@@ -70,6 +70,10 @@ class Install extends CI_Controller {
     long_value text,
     PRIMARY KEY (id)
 );",
+"INSERT INTO system_var (variable_name,variable_value) 
+VALUES ('test_control','{\'next_test_id\':1}')
+, ('site_meta','{\"siteName\":\"CBT\",\"description\":\"A cbt software\"}');"
+,
 "CREATE TABLE history (
         id int(11) NOT NULL AUTO_INCREMENT,
         user_id varchar(128),
