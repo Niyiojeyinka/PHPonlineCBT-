@@ -9,8 +9,6 @@ Date:Start ReWriting  2018
 
 */
 
-
-
 public function __construct()
 {
             parent::__construct();
@@ -23,12 +21,11 @@ public function __construct()
             if (!isset($this->session->id) || !isset($this->session->logged_in))
             {      show_page('users/login') ;    }
 
-
+            
             $this->siteName ="CBT";
             $this->descriptions ="Examnation Software";
             $this->author ="author Name";
             $this->keywords ="keywords";
-
 
 }
 
@@ -58,11 +55,18 @@ public function index($slug = null)
 
 public function start(){
 
-	        $data["title"] = $this->siteName." | Pre Start";
-            $this->template('user/pre_start_view',$data);
+            $data["title"] = $this->siteName." | Pre Start";
+            $data['next_test']= $this->dashboard_model->get_next_test();
 
+            $this->template('user/pre_start_view',$data);
 }
 
+public function question(){
 
+    $data["title"] = $this->siteName." | Test";
+    $data['next_test']= $this->dashboard_model->get_next_test();
+
+    $this->template('user/pre_start_view',$data);
+}
 
 }
