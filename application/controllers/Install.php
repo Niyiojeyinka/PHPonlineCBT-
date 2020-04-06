@@ -117,6 +117,7 @@ class Install extends CI_Controller {
         id int(11) NOT NULL AUTO_INCREMENT,
         user_id varchar(128),
         answers text, 
+        questions text, 
         time_start varchar(128),
         test_id int(4),
         time_end varchar(128),

@@ -16,7 +16,7 @@ Admin get results in csv format<br>
 
 ## How it works
 
-Admin set ollections of question to be answer by logged in student . student answer and admin get result
+Admin set collections of question to be answer by logged in student . student answer and admin get result
 
 
 <br>
@@ -24,4 +24,4 @@ Admin set ollections of question to be answer by logged in student . student ans
 
 
 Development is still on
-this was a side project about 3years ago
+this was a side project about 3years ago(was original a past question practice app)
