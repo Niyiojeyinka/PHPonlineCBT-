@@ -32,7 +32,17 @@ public function __construct()
 
 }
 
+public function template($view_name,$data)
+{
 
+    $this->load->view('common/headmeta_view',$data);
+    $this->load->view('user/common/users_nav_view',$data);
+    $this->load->view('common/header_view',$data);
+    $this->load->view('user/common/pre_content_view',$data);
+    $this->load->view($view_name,$data);
+    $this->load->view('user/common/post_content_view',$data);
+    $this->load->view('common/footer_view',$data);
+}
 
 public function index($slug = null)
 {
@@ -46,19 +56,9 @@ public function index($slug = null)
             $data["noindex"] ='<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">';
             $data['user_details'] = $this->users_model->get_user_by_id();
 
+            $this->template('user/first_view',$data);
 
-
-            $this->load->view('common/headmeta_view',$data);
-            $this->load->view('user/common/users_nav_view',$data);
-            $this->load->view('common/header_view',$data);
-            $this->load->view('user/common/pre_content_view',$data);
-            $this->load->view('user/first_view',$data);
-            $this->load->view('user/common/post_content_view',$data);
-            $this->load->view('common/footer_view',$data);
 }
-
-
-
 
 public function start(){
 
@@ -70,13 +70,8 @@ public function start(){
             $data['user_details'] = $this->users_model->get_user_by_id();
             $data['next_test']= $this->dashboard_model->get_next_test();
 
-            $this->load->view('common/headmeta_view',$data);
-            $this->load->view('user/common/users_nav_view',$data);
-            $this->load->view('common/header_view',$data);
-            $this->load->view('user/common/pre_content_view',$data);
-            $this->load->view('user/pre_start_view',$data);
-            $this->load->view('user/common/post_content_view',$data);
-            $this->load->view('common/footer_view',$data);
+            
+            $this->template('user/pre_start_view',$data);
 
 }
 
