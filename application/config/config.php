@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$config['base_url'] = 'http://localhost/cbt';
 
 
-$config['base_url'] = 'http://localhost:8080/cbt';
+$config['base_url'] = 'http://localhost/cbt';
 /*
 |--------------------------------------------------------------------------
 | Index File

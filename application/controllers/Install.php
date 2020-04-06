@@ -31,7 +31,7 @@ class Install extends CI_Controller {
     );",
 "CREATE TABLE questions (
         id int(11) NOT NULL AUTO_INCREMENT,
-        subject varchar(128),
+        subject_id int(4),
         year varchar(128),
         answer varchar(128),
         question_img varchar(128),
@@ -111,8 +111,8 @@ class Install extends CI_Controller {
         id int(11) NOT NULL AUTO_INCREMENT,
         name varchar(128),
         questions text, 
-        time_start varchar(128),
-        time_end varchar(128),
+        test_start varchar(128),
+        test_end varchar(128),
         time_allowed varchar(128),
         time int(20),
         PRIMARY KEY (id)
@@ -122,6 +122,7 @@ class Install extends CI_Controller {
         user_id varchar(128),
         answers text, 
         time_start varchar(128),
+        test_id int(4),
         time_end varchar(128),
         status varchar(128),
         time int(20),

@@ -5,7 +5,7 @@ class Question extends CI_Controller {
 /*
 
 Name:CBT
-Date:Start Writing  2018
+Date:Start ReWriting  2018
 
 */
 
@@ -60,9 +60,9 @@ public function index($slug = null)
 
 
 
-public function pre_start(){
+public function start(){
 
-	$data["title"] = $this->siteName." | Pee Start";
+	$data["title"] = $this->siteName." | Pre Start";
                $data["keywords"] ="";
                $data["author"] =$this->author;
               $data["descriptions"] =$this->descriptions;
