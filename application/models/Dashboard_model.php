@@ -17,159 +17,19 @@ class Dashboard_model extends CI_Model {
     parent::__construct();
     $this->load->database();
     $this->load->library('session');
-
-    $holder = array(
-
-    "lastlog" => time()
-
-
-
-    )  ;
-
-
-      $this->db->update("users",$holder,array("id" => $this->session->id));
-
-
+  
 }
 
-//new
-public function get_avail_subject()
+public function get_next_test_id()
 {
-
-    $query = $this->db->get('subjects');
-  return $query->result_array();
-
-
-
+ $test_id_row = $this->db->get_where("system_var",["variable_name"=>"test_control"])->row_array()['variable_value'];
+ return json_decode($test_id_row,true)['next_test_id'];
+ 
 }
 
-
-
-public function update_payment($ref)
+public function get_next_test()
 {
-
-
-
-$holder = array(
-
-"status" => "Paid"
-
-
-
-)  ;
-
-
-  $this->db->update("payments",$holder,array("ref" => $ref));
-
+ $test_id = $this->get_next_test_id();
+ return $this->db->get_where("tests",['id' => $test_id])->row_array();
 }
-
-
-
-
-//new
-public function get_user_subjects_combination()
-{
-
-  $query = $this->db->get_where('users',array("id" => $_SESSION['id']));
-  return $query->row_array()['subjects'];
-
-
-
-}
-public function get_payment_amount($ref)
-{
-
-  $query = $this->db->get_where('payments',array("ref" => $ref ,"status" => "Pre_pay"));
-return $query->row_array()['amount'];
-}
-
-
-
-//new
-public function insert_payment_details($user_id,$ref,$amount,$type)
-{
-
-if($type =='c'){
-  //cashenvoy
-  $method = "Online Card Payment";
-}elseif ($type =='m') {
-  //monapay
-  $method = "Online Monapay Payment";
-
-}
-
-
-  $arr =  array(
-    'amount' => $amount,
-    'ref' => $ref,
-    'user_id' =>$user_id ,
-    'status' => "Pre_pay" ,
-    'time' => time() ,
-    'details' => "Deposit to Pryce Account" ,
-    'method' => $method ,
-    'product' => 'deposit'
-
-   );
-
-
-   $query = $this->db->get_where('payments',array("ref" => $ref));
-
- if($query->row_array() != NULL)
- {
-   $this->db->update('payments',$arr,array('ref' => $ref));
-
-
- }else{
-   $this->db->insert('payments',$arr);
-
- }
-
-
-
-}
-
-
-public function get_subjects($type)
-{
-
-  if($type == NULL)
-  {
-
-
-      $query = $this->db->get('questions');
-      return $query->result_array();
-
-  }else{
-    $query = $this->db->get_where('questions',array(
-    "account_type" => $type));
-    return $query->result_array();
-
-  }
-
-
-}
-
-//new
-public function get_subject_question($subject,$type)
-{
-if($type == NULL)
-{
-
-
-    $query = $this->db->get_where('questions',array("subject" => $subject));
-    return $query->result_array();
-
-}else{
-  $query = $this->db->get_where('questions',array("subject" => $subject,
-  "account_type" => $type));
-  return $query->result_array();
-
-}
-
-
-
-}
-
-
-
 }
