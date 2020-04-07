@@ -88,7 +88,28 @@ public function get_user_by_id()
 
 
 }
+public function check_if_attend_test($test_id,$user_id)
+{
+  $test_session = $this->db->get_where("test_sessions",['test_id'=>$test_id,'user_id'=>$user_id])->row_array();
+  return empty($test_session)?FALSE:TRUE;
 
+}
 
+public function get_user_test_session($user_id, $test_id){
 
+  return $this->db->get_where("test_sessions",['test_id'=>$test_id,'user_id'=>$user_id])->row_array();
+
+}
+
+public function update_test_session($data, $test_id,$user_id)
+{
+ $this->db->update("test_sessions",$data,['test_id'=>$test_id,'user_id'=>$user_id]);
+
+}
+
+public function insert_test_session($data)
+{
+ $this->db->insert("test_sessions",$data);
+
+}
 }
