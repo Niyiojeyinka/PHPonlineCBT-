@@ -35,7 +35,6 @@ class Install extends CI_Controller {
         year varchar(128),
         answer varchar(128),
         question_img varchar(128),
-        account_type varchar(128),
         option_a varchar(255),
         option_b varchar(255),
         option_c varchar(255),
