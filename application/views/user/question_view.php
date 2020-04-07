@@ -103,7 +103,8 @@
     </header>
 
         <div class="w3-container w3-white w3-center">
-       
+        <img class='w3-margin' style='max-width:500px;max-height:550px' src='<?=base_url("")?>/assets/questions/physics32.png'/>
+
 
         </div>
 
@@ -124,6 +125,69 @@
 
 </div>
 <!--modal ends here-->
+
+
+
+
+
+
+<br>
+<div style="width:98%" class='w3-container w3-tiny'>
+
+
+Use the Diagram below to answer the following question correctly
+</div>
+<div style="width:80%" class='w3-container w3-small'>
+<img onclick="document.getElementById('container0').style.display='block'"
+ style='max-width:200px;max-height:250px' src='<?=base_url()?>/assets/questions/physics32.png'/>
+
+</div>
+
+<div style="width:90%" class='w3-container w3-small'>
+
+<!--comp-->
+
+</div>
+<br>
+( 2 ) Calculate the current (I) that flows through the closed Circuit ?
+
+<br><br><span class="w3-large">A </span>
+<input type="radio" name="option"  value="a" class="w3-radio w3-small" /> 3.9 Amperes<br>
+
+<span class="w3-large">B </span>
+<input type="radio" name="option"  value="a" class="w3-radio w3-small" /> 1.9 Amperes<br>
+
+<span class="w3-large">C </span>
+<input type="radio" name="option"  value="a" class="w3-radio w3-small" /> 0.9 Amperes<br>
+
+<span class="w3-large">D </span>
+<input type="radio" name="option"  value="a" class="w3-radio w3-small"  checked/> None of the Above<br>
+<br>
+<!---options end here--->
+<div class="w3-cell-row">
+<div  class="w3-cell">
+  <button  class='w3-button w3-border w3-left' name='previous'   value='prev'>Previous</button>
+
+</div>
+<div  class="w3-cell">
+  <button  class='w3-button w3-border w3-right' name='next'   value='next'>Next</button>
+
+</div>
+
+
+</div>
+<br>
+<button class='w3-button w3-border w3-green' name='qno'   value='1'>1</button>
+
+<button class='w3-button w3-border w3-gray' name='qno'   value='1'>2</button>
+<button class='w3-button w3-border' name='qno'   value='1'>3</button>
+
+<button class='w3-button w3-border' name='qno'   value='1'>4</button>
+<br><br>
+<input  class="w3-btn w3-red" type="submit" name="submit" value="Submit"/>
+
+
+
 
 
 
