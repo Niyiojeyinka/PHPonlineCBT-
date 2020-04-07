@@ -19,52 +19,6 @@ class Pages_model extends CI_Model {
 
 }
 
-public function get_pages($slug)
-{
-
-
-$query = $this->db->get_where('pages',array("slug" => $slug));
-  return $query->row_array();
-
-
-
-
-}
-public function get_page_id($id)
-{
-
-
-$query = $this->db->get_where('pages',array("id" => $id));
-  return $query->row_array();
-
-
-}
-
-
-public function get_pagelist($offset,$limit)
-{
-
- $query = $this->db->get("pages",$limit,$offset);
-return $query->result_array();
-
-
- }
-
-
-
-public function get_pages_draft($offset,$limit)
-{
-$query = $this->db->get_where('pages',array("status" => "drafted"),$limit,$offset);
-  return $query->result_array();
-
-
-
-
-
-
-}
-
-
 public function get_common($position)
 {
 //position option :pre_content,post_content,mid_content

@@ -15,7 +15,7 @@ class Install extends CI_Controller {
 
     $this->load->database();
     $queries = array(
-"CREATE TABLE users (
+"CREATE TABLE IF NOT EXISTS users (
             id int(11) NOT NULL AUTO_INCREMENT,
             firstname varchar(128),
             lastname varchar(128),
@@ -28,7 +28,7 @@ class Install extends CI_Controller {
             lastlog varchar(128),
             PRIMARY KEY (id)
     );",
-"CREATE TABLE questions (
+"CREATE TABLE IF NOT EXISTS questions (
         id int(11) NOT NULL AUTO_INCREMENT,
         subject_id int(4),
         year varchar(128),
@@ -46,9 +46,9 @@ class Install extends CI_Controller {
         instructions text,
         status enum( 'published','draft'),
         time int(20),
-         PRIMARY KEY (id)
+        PRIMARY KEY (id)
 );",
-"CREATE TABLE media (
+"CREATE TABLE IF NOT EXISTS media (
         id int(11) NOT NULL AUTO_INCREMENT,
         name varchar(128),
         time int(20),
@@ -56,7 +56,7 @@ class Install extends CI_Controller {
         type varchar(128),
         PRIMARY KEY (id)
 );",
-"CREATE TABLE system_var (
+"CREATE TABLE IF NOT EXISTS system_var (
     id int(11) NOT NULL AUTO_INCREMENT,
     variable_name varchar(128),
     variable_value varchar(128),
@@ -67,7 +67,7 @@ class Install extends CI_Controller {
 VALUES ('next_test_id','1')
 , ('site_meta','{\"siteName\":\"CBT\",\"description\":\"A cbt software\"}');"
 ,
-"CREATE TABLE history (
+"CREATE TABLE IF NOT EXISTS history (
         id int(11) NOT NULL AUTO_INCREMENT,
         user_id varchar(128),
         details varchar(128),
@@ -75,7 +75,7 @@ VALUES ('next_test_id','1')
          time int(20),
          PRIMARY KEY (id)
 );",
-"CREATE TABLE common_tab (
+"CREATE TABLE IF NOT EXISTS common_tab (
         id int(11) NOT NULL AUTO_INCREMENT,
         position varchar(128),
         short_det varchar(128),
@@ -83,7 +83,7 @@ VALUES ('next_test_id','1')
         PRIMARY KEY (id)
 );"
 ,
-"CREATE TABLE results (
+"CREATE TABLE IF NOT EXISTS results (
         id int(11) NOT NULL AUTO_INCREMENT,
         user_id varchar(128) NOT NULL,
         standard_score varchar(128),
@@ -91,14 +91,14 @@ VALUES ('next_test_id','1')
         time int(20) NOT NULL,
          PRIMARY KEY (id)
 );",
- "CREATE TABLE subjects (
+ "CREATE TABLE IF NOT EXISTS subjects (
         id int(11) NOT NULL AUTO_INCREMENT,
         name varchar(128),
         short_name varchar(128),
           PRIMARY KEY (id)
 );",
 
-"CREATE TABLE tests (
+"CREATE TABLE IF NOT EXISTS tests (
         id int(11) NOT NULL AUTO_INCREMENT,
         name varchar(128),
         questions text, 
@@ -110,7 +110,7 @@ VALUES ('next_test_id','1')
         time int(20),
         PRIMARY KEY (id)
 );",
-"CREATE TABLE test_sessions (
+"CREATE TABLE IF NOT EXISTS test_sessions (
         id int(11) NOT NULL AUTO_INCREMENT,
         user_id varchar(128),
         answers text, 
@@ -123,7 +123,7 @@ VALUES ('next_test_id','1')
         PRIMARY KEY (id)
 );",
 
-"CREATE TABLE  team (
+"CREATE TABLE IF NOT EXISTS  team (
         id int(11) NOT NULL AUTO_INCREMENT,
         username varchar(128),
         password varchar(128),
@@ -132,7 +132,7 @@ VALUES ('next_test_id','1')
         time int(20),
         PRIMARY KEY (id)
 );",
-"CREATE TABLE  roles (
+"CREATE TABLE IF NOT EXISTS  roles (
         id int(11) NOT NULL AUTO_INCREMENT,
         role_name varchar(128),
         status varchar(128),
