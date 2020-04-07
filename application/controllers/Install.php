@@ -44,11 +44,8 @@ class Install extends CI_Controller {
         question text,
         comp text,
         question_type enum( 'text','image'),
-        level int(2),
         instructions text,
-        explanation text,
         status enum( 'published','draft'),
-        author varchar(128),
         time int(20),
          PRIMARY KEY (id)
 );",
