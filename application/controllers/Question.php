@@ -68,5 +68,10 @@ public function question(){
 
     $this->template('user/question_view',$data);
 }
+public function ajax_get_question()
+{
+   
+    
+}
 
 }
