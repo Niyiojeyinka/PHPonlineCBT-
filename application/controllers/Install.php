@@ -25,7 +25,6 @@ class Install extends CI_Controller {
             profile_img varchar(128),
             status varchar(128),
             time int(20),
-            level int(2),
             lastlog varchar(128),
             PRIMARY KEY (id)
     );",
