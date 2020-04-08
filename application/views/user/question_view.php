@@ -1,13 +1,67 @@
+<script type="text/javascript">
+/* base code here*/
+const state = {
+  question:{},
+  user_answer:null,
+  current_screen_id:null
+    };
+
+
+function sendGetRequest(url, success) {
+    var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.open('GET', url);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState>3 && xhr.status==200) success(xhr.responseText);
+    };
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.send();
+    return xhr;
+}
+
+function sendPostRequest(url, data, success) {
+    var params = typeof data == 'string' ? data : Object.keys(data).map(
+            function(k){ return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]) }
+        ).join('&');
+
+    var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+    xhr.open('POST', url);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState>3 && xhr.status==200) { success(xhr.responseText); }
+    };
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(params);
+    return xhr;
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 <!--main screeen-->
 <div id="screen" class='w3-container w3-padding'>
  
+
+</div>
+
+<!--loader screen here-->
+<div id="hold_loader_screen" style="display:none">
+
 <div class="w3-center w3-padding-jumbo">
 <img src="<?= base_url('assets/images/loader.png')?>" class="w3-spin w3-image"/>
 </div>
+
 </div>
-
-
-
 
 <!--submit screen here-->
 <div id="hold_submit_screen" style="display:none">
@@ -190,7 +244,7 @@
     </header>
 
         <div class="w3-container w3-white w3-center">
-        <img class='w3-margin' style='max-width:500px;max-height:550px' src='<?=base_url("")?>/assets/questions/physics32.png'/>
+        <img class='w3-margin' style='max-width:500px;max-height:550px' data-q-img src=''/>
 
 
         </div>
@@ -213,63 +267,49 @@
 </div>
 <!--modal ends here-->
 
-
-
-
-
-
 <br>
-<div style="width:98%" class='w3-container w3-tiny'>
+<div id="theinstructions" style="width:98%" class='w3-container w3-tiny'><!----->
 
 
-Use the Diagram below to answer the following question correctly
 </div>
-<div style="width:80%" class='w3-container w3-small'>
+<div style="width:80%" class='w3-container w3-small' id="theimage">
 <img onclick="document.getElementById('container0').style.display='block'"
- style='max-width:200px;max-height:250px' src='<?=base_url()?>/assets/questions/physics32.png'/>
+ style='max-width:200px;max-height:250px' data-q-img src=''/>
 
 </div>
+<br>
 
-<div style="width:90%" class='w3-container w3-small'>
+<div style="width:90%" class='w3-container w3-small' id="thecomp"><!----->
 
 <!--comp-->
 
 </div>
 <br>
-( 2 ) Calculate the current (I) that flows through the closed Circuit ?
+<span id="thequestion"></span><!----->
 
-<br><br><span class="w3-large">A </span>
-<input type="radio" name="option"  value="a" class="w3-radio w3-small" /> 3.9 Amperes<br>
+<br><br>
 
-<span class="w3-large">B </span>
-<input type="radio" name="option"  value="a" class="w3-radio w3-small" /> 1.9 Amperes<br>
+<div id="theoptions"><!----->
 
-<span class="w3-large">C </span>
-<input type="radio" name="option"  value="a" class="w3-radio w3-small" /> 0.9 Amperes<br>
-
-<span class="w3-large">D </span>
-<input type="radio" name="option"  value="a" class="w3-radio w3-small"  checked/> None of the Above<br>
+</div>
 <br>
 <!---options end here--->
 <div class="w3-cell-row">
 <div  class="w3-cell">
-  <button  class='w3-button w3-border w3-left' name='previous'   value='prev'>Previous</button>
+  <button  class='w3-button w3-border w3-left w3-small' name='previous'   value='prev'>Previous</button>
 
 </div>
 <div  class="w3-cell">
-  <button  class='w3-button w3-border w3-right' name='next'   value='next'>Next</button>
+  <button  class='w3-button w3-border w3-right w3-small' name='next'   value='next'>Next</button>
 
 </div>
 
 
 </div>
 <br>
-<button class='w3-button w3-border w3-green' name='qno'   value='1'>1</button>
+<div id='thenos'>
 
-<button class='w3-button w3-border w3-gray' name='qno'   value='1'>2</button>
-<button class='w3-button w3-border' name='qno'   value='1'>3</button>
-
-<button class='w3-button w3-border' name='qno'   value='1'>4</button>
+        </div>
 <br><br>
 <input  class="w3-btn w3-red" type="submit" name="submit" value="Submit"/>
 
@@ -283,7 +323,106 @@ console.log("ALL CRITICAL VALIDATION ARE DONE IN THE BACKEND,THE TIMER IS JUST F
 
 var changeScreenTo=(screenId) => {
   document.querySelector(`div[id='screen']`).innerHTML =document.querySelector(`div[id="${screenId}"]`).innerHTML;
+  state.current_screen_id = screenId;
 }
 
+changeScreenTo('hold_loader_screen');
+
+
+var buildWholeOptionLook = function(question) {
+  //build the option look
+//check no of available option and iterate accordingly
+let options= ['a','b','c','d'];
+
+if(question['option_e'] != null){
+  options.push('e');
+}
+let holdOptionHtml =``;
+
+for (var i = 0;i<options.length ; i++) {
+   holdOptionHtml +=`<span class="w3-large">${options[i].toUpperCase()} </span>
+<input type="radio" name="option"  value="${options[i]}" class="w3-radio w3-small" /> ${question[`option_${options[i]}`]}<br>`; 
+}
+
+
+return holdOptionHtml;
+
+}
+
+
+var buildQuestionsno = function(question) {
+  let holdnos =``;
+  // w3-green gray 
+for (var i = 0;i<question.total_no_questions ; i++) {
+   holdnos +=`<button onclick="" class='w3-button w3-border' name='qno'   value='${i}'>${i+1}</button>
+`; 
+}
+
+
+return holdnos;
+
+}
+
+var buildWholeQuestionLook = function(question) {
+  //build the question look
+
+changeScreenTo('hold_question_screen');
+document.querySelector('div[id="theoptions"]').innerHTML= buildWholeOptionLook(question);
+document.querySelector('div[id="theinstructions"]').innerHTML =question.instructions;
+document.querySelector('div[id="thecomp"]').innerHTML =question.comp;
+document.querySelector('span[id="thequestion"]').innerHTML=`( ${question.index+1} ) ${question.question}`;
+
+if(question.question_img != null){
+document.querySelectorAll('img[data-q-img]').forEach((eachImg)=>{
+eachImg.setAttribute("src",`<?=base_url()?>/assets/questions/${question.question_img}`);
+
+});
+
+}else{
+  document.querySelector('div[theimage]').style.display ="none";
+}
+
+document.querySelector('div[id="thenos"]').innerHTML= buildQuestionsno(question);
+
+
+}
+
+
+var controller = {
+"init":function(){
+
+sendGetRequest('<?=site_url('question/ajax_get_question') ?>',(data)=>{
+state.question = JSON.parse(data).question;
+
+changeScreenTo('hold_question_screen');
+buildWholeQuestionLook(state.question);
+});
+
+},
+"processAction":function(question) {
+  //process no click,next,previous btn
+}
+,
+"actionBtn":function(btnn) {
+  let btn = parseInt(btnn);
+     if(btn == NaN){
+      if (btn =="next") {
+        state.question_index = state.question_index+1;
+      }else if(btn =="prev" && btn > 0){
+        state.question_index = state.question_index-1;
+      }
+     }else{
+      //its a no
+      state.question_index = btn;
+     }
+},
+"submit":function(){
+//submit function here
+
+}
+
+};
+
+controller.init();
 
 </script>
