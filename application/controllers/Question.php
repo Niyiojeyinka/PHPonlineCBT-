@@ -122,7 +122,8 @@ public function ajax_get_question($question_index = 0)
 
             //get question
             $question = $this->question_model->get_question_by_id($questions_array[$question_index],true);
-            
+            $question['index']=$question_index;
+            $question['total_no_questions']=count(json_decode($user_test_session['questions']));
             echo json_encode(['error'=>0,'question' => $question]);
 
             
