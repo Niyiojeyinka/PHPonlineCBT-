@@ -19,7 +19,7 @@ public function __construct()
             //user login check here
 
             if (!isset($this->session->id) || !isset($this->session->logged_in))
-            {      show_page('users/login') ;    }
+            {      show_page('users/login') ;  exit();  }
 
             
             $this->siteName ="CBT";
@@ -64,6 +64,7 @@ public function start(){
 public function question(){
 
             $data["title"] = $this->siteName." | Test";
+            $data['next_test']= $this->dashboard_model->get_next_test();
 
             $this->template('user/question_view',$data);
 }

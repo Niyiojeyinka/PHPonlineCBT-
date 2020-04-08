@@ -1,7 +1,94 @@
-<div id="q_div" class='w3-container'>
-  <div class="w3-cell-row">
+<!--main screeen-->
+<div id="screen" class='w3-container w3-padding'>
+ 
+<div class="w3-center w3-padding-jumbo">
+<img src="<?= base_url('assets/images/loader.png')?>" class="w3-spin w3-image"/>
+</div>
+</div>
+
+
+
+
+<!--submit screen here-->
+<div id="hold_submit_screen" style="display:none">
+
+
+<div class="w3-center w3-padding-jumbo">
+<span class="w3-xlarge">Your Test has been Submitted Successfully</span>
+<br>
+<span>You can logout now</span>
+<i class="fa fa-padlock"></i>
+<br><br>
+<a class="w3-button w3-indigo w3-text-white w3-large" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
+</div>
+
+</div>
+
+
+
+<!--Pre test screen here-->
+<div id="hold_pre_test_screen" style="display:none">
+
+
+<div class="w3-center w3-padding-jumbo">
+<span class="w3-xlarge">Your Test is schedule to start by <?=date('F j Y,g:ia',$next_test['test_start'])?></span>
+<br>
+<span>You can logout now</span>
+<i class="fa fa-padlock"></i>
+<br><br>
+<a class="w3-button w3-indigo w3-text-white w3-large" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
+</div>
+
+
+</div>
+
+<!--Post-test screen here-->
+<div id="hold_post_test_screen" style="display:none">
+
+
+<div class="w3-center w3-padding-jumbo">
+<span class="w3-xlarge">OOPs Sorry ,You missed the Test</span>
+<br>
+<span class="w3-large">Your Test is schedule to start by <?=date('F j Y,g:ia',$next_test['test_start'])?>
+ and ended at <?=date('F j Y,g:ia',$next_test['test_end'])?>
+</span>
+<br>
+<span>You can logout now</span>
+<i class="fa fa-padlock"></i>
+<br><br>
+<a class="w3-button w3-indigo w3-text-white w3-large" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
+</div>
+
+
+</div>
+
+<!--time up screen here-->
+<div id="hold_time_up_screen" style="display:none">
+
+
+<div class="w3-center w3-padding-jumbo">
+<span class="w3-xlarge">OOPS your time is up and your test has been submitted</span>
+<br>
+<span>You can logout now</span>
+<i class="fa fa-padlock"></i>
+<br><br>
+<a class="w3-button w3-indigo w3-text-white w3-large" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
+</div>
+
+
+</div>
+
+
+<!--question here--->
+
+<div id="hold_question_screen" style="display:none">
+
+
+
+
+ <div class="w3-cell-row">
   <div class="w3-cell">
-  <button onclick="document.getElementById('containerc').style.display='block'" class="w3-button w3-hover-indigo w3-border">Open Calculator</button>
+  <button onClick="document.getElementById('containerc').style.display='block'" class="w3-button w3-hover-indigo w3-border">Open Calculator</button>
   </div>
 
   <div class="w3-cell">
@@ -186,13 +273,17 @@ Use the Diagram below to answer the following question correctly
 <br><br>
 <input  class="w3-btn w3-red" type="submit" name="submit" value="Submit"/>
 
-
-
-
-
-
-
-
-
-
 </div>
+
+
+<script>
+console.log("ALL CRITICAL VALIDATION ARE DONE IN THE BACKEND,THE TIMER IS JUST FOR YOUR NOTICE SAKE");
+
+//document.querySelector("div[id='q_div']").addEventListener('load',function(){ alert("hi")});
+
+var changeScreenTo=(screenId) => {
+  document.querySelector(`div[id='screen']`).innerHTML =document.querySelector(`div[id="${screenId}"]`).innerHTML;
+}
+
+
+</script>
