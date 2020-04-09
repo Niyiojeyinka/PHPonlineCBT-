@@ -69,7 +69,8 @@ public function question(){
             $this->template('user/question_view',$data);
 }
 public function ajax_get_question($question_index = 0)
-{    
+{    //question_index variable in the parameter is the next question to get
+
     $test_details = $this->dashboard_model->get_next_test();
     $test_time_status = $this->question_model->check_test_time_status($test_details);
     $user_test_session = $this->users_model->get_user_test_session($this->session->id, $test_details['id']);
@@ -107,6 +108,7 @@ public function ajax_get_question($question_index = 0)
             $data=[
                 'questions'=> json_encode($questions_array),
                 'user_id' => $this->session->id,
+                'answers'=>"[]",//user answers
                 'test_id'=>$test_details['id'],
                 'last_updated'=>time(),
                 'time'=>time(),
