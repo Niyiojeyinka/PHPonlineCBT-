@@ -312,7 +312,7 @@ function sendPostRequest(url, data, success) {
 
         </div>
 <br><br>
-<input  class="w3-btn w3-red" type="submit" name="submit" value="Submit"/>
+<input  class="w3-btn w3-red" type="submit" name="submit" onclick="controller.submit()" value="Submit"/>
 
 </div>
 
@@ -454,6 +454,7 @@ buildWholeQuestionLook(state.question);
 },
 "submit":function(){
 //submit function here
+this.processAction(state.question.index,true);
 
 }
 ,
