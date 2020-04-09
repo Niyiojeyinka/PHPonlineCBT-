@@ -125,6 +125,7 @@ public function ajax_get_question($question_index = 0)
             //get question
             $question = $this->question_model->get_question_by_id($questions_array[$question_index],true);
             $question['index']=$question_index;
+            $question['user_answers']=json_decode($user_test_session['answers']);
             $question['total_no_questions']=count(json_decode($user_test_session['questions']));
             echo json_encode(['error'=>0,'question' => $question]);
 
@@ -140,5 +141,32 @@ public function ajax_get_question($question_index = 0)
         }
 
 }
+public function ajax_post_question($next_question_index)
+{
+   
+       
+    $test_details = $this->dashboard_model->get_next_test();
+    $user_test_session = $this->users_model->get_user_test_session($this->session->id, $test_details['id']);
+    $user_answers =json_decode($user_test_session['answers'],true);
+    $user_answers[$_POST['question_index']] = isset($_POST['user_answer'])?$_POST['user_answer']:NULL;
+
+    
+    if (!isset($_POST['submitted'])) {
+        $data=[
+            'answers'=>json_encode($user_answers)
+        ];
+        $this->users_model->update_test_session($data,$test_details['id'],$this->session->id);
+    $this->ajax_get_question($next_question_index);
+    }else{
+
+        $data=[
+            'status'=>'submitted'
+        ];
+        $this->users_model->update_test_session($data,$test_details['id'],$this->session->id);
+       echo json_encode(['error'=>0,'report'=>'submitted successfully']);
+
+    }
+}
+
 
 }

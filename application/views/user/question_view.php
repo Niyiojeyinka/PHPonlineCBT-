@@ -2,8 +2,9 @@
 /* base code here*/
 const state = {
   question:{},
-  user_answer:null,
-  current_screen_id:null
+  user_answers:null,
+  current_screen_id:null,
+  next_question_index:0
     };
 
 
@@ -296,11 +297,11 @@ function sendPostRequest(url, data, success) {
 <!---options end here--->
 <div class="w3-cell-row">
 <div  class="w3-cell">
-  <button  class='w3-button w3-border w3-left w3-small' name='previous'   value='prev'>Previous</button>
+  <button  class='w3-button w3-border w3-left w3-small' name='previous' onclick="controller.actionBtn(state.question.index-1<0?0:state.question.index-1)"  value='prev'>Previous</button>
 
 </div>
 <div  class="w3-cell">
-  <button  class='w3-button w3-border w3-right w3-small' name='next'   value='next'>Next</button>
+  <button  class='w3-button w3-border w3-right w3-small' name='next' onclick="controller.actionBtn(state.question.index+1<state.question.total_no_questions?state.question.index+1:state.question.index)"  value='next'>Next</button>
 
 </div>
 
@@ -337,11 +338,14 @@ let options= ['a','b','c','d'];
 if(question['option_e'] != null){
   options.push('e');
 }
+
+
+  
 let holdOptionHtml =``;
 
 for (var i = 0;i<options.length ; i++) {
    holdOptionHtml +=`<span class="w3-large">${options[i].toUpperCase()} </span>
-<input type="radio" name="option"  value="${options[i]}" class="w3-radio w3-small" /> ${question[`option_${options[i]}`]}<br>`; 
+<input type="radio" name="option"  value="${options[i]}" class="w3-radio w3-small" ${question.user_answers[question.index] ==options[i]?"checked":""}/> ${question[`option_${options[i]}`]}<br>`; 
 }
 
 
@@ -353,8 +357,17 @@ return holdOptionHtml;
 var buildQuestionsno = function(question) {
   let holdnos =``;
   // w3-green gray 
+
 for (var i = 0;i<question.total_no_questions ; i++) {
-   holdnos +=`<button onclick="" class='w3-button w3-border' name='qno'   value='${i}'>${i+1}</button>
+  let color='white';
+   if (question.index==i){
+     color ="gray";
+   }else if(question.user_answers[i] != undefined && question.user_answers[i] !="empty"){
+    color ="green";
+
+   }
+
+   holdnos +=`<button class='w3-button w3-border w3-${color}' name='qno' onclick="controller.actionBtn(this.value)"   value='${i}'>${i+1}</button>
 `; 
 }
 
@@ -370,7 +383,7 @@ changeScreenTo('hold_question_screen');
 document.querySelector('div[id="theoptions"]').innerHTML= buildWholeOptionLook(question);
 document.querySelector('div[id="theinstructions"]').innerHTML =question.instructions;
 document.querySelector('div[id="thecomp"]').innerHTML =question.comp;
-document.querySelector('span[id="thequestion"]').innerHTML=`( ${question.index+1} ) ${question.question}`;
+document.querySelector('span[id="thequestion"]').innerHTML=`( ${parseInt(question.index)+1} ) ${question.question}`;
 
 if(question.question_img != null){
 document.querySelectorAll('img[data-q-img]').forEach((eachImg)=>{
@@ -379,7 +392,7 @@ eachImg.setAttribute("src",`<?=base_url()?>/assets/questions/${question.question
 });
 
 }else{
-  document.querySelector('div[theimage]').style.display ="none";
+  document.querySelector('div[id="theimage"]').style.display ="none";
 }
 
 document.querySelector('div[id="thenos"]').innerHTML= buildQuestionsno(question);
@@ -387,37 +400,75 @@ document.querySelector('div[id="thenos"]').innerHTML= buildQuestionsno(question)
 
 }
 
-
 var controller = {
 "init":function(){
 
 sendGetRequest('<?=site_url('question/ajax_get_question') ?>',(data)=>{
 state.question = JSON.parse(data).question;
-
+state.question.index = parseInt(state.question.index);
 changeScreenTo('hold_question_screen');
 buildWholeQuestionLook(state.question);
 });
 
 },
-"processAction":function(question) {
-  //process no click,next,previous btn
+
+"processAction":function(next_question_index,submitted) {
+  //process no,next,previous btn click
+  let userAnswer = this.getUserChosenOption();
+
+  changeScreenTo('hold_loader_screen');
+if(submitted){
+
+
+  let payLoad = {"question_index":state.question.index,"user_answer":userAnswer,"submitted":true};
+  sendPostRequest(`<?=site_url('question/ajax_post_question') ?>/${state.next_question_index}`,payLoad,(data)=>{
+    
+changeScreenTo('hold_submit_screen');
+buildWholeQuestionLook(state.question);
+
+  });
+
+}else{
+
+  let payLoad = {"question_index":state.question.index,"user_answer":userAnswer};
+  sendPostRequest(`<?=site_url('question/ajax_post_question') ?>/${state.next_question_index}`,payLoad,(data)=>{
+    
+    state.question = JSON.parse(data).question;
+    state.question.index = parseInt(state.question.index);
+
+changeScreenTo('hold_question_screen');
+buildWholeQuestionLook(state.question);
+
+  });
+
+
+}
+
 }
 ,
-"actionBtn":function(btnn) {
-  let btn = parseInt(btnn);
-     if(btn == NaN){
-      if (btn =="next") {
-        state.question_index = state.question_index+1;
-      }else if(btn =="prev" && btn > 0){
-        state.question_index = state.question_index-1;
-      }
-     }else{
-      //its a no
-      state.question_index = btn;
-     }
+"actionBtn":function(btn) {
+     
+      state.next_question_index = btn;
+    
+     this.processAction(state.next_question_index,false);
 },
 "submit":function(){
 //submit function here
+
+}
+,
+
+"getUserChosenOption" : function(){
+let answers =['a','b','c','d','e'];
+
+let optionIndex=null;
+ document.querySelectorAll('input[name="option"]').forEach((option,index)=>{
+    if( option.checked)
+    {
+      optionIndex= index;
+    }
+});
+return optionIndex==null?"empty": answers[optionIndex] ;
 
 }
 
