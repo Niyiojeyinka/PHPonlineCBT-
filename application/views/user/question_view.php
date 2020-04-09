@@ -70,7 +70,7 @@ function sendPostRequest(url, data, success) {
 
 <div class="w3-center w3-padding-jumbo">
 <span class="w3-xlarge">Your Test has been Submitted Successfully</span>
-<br>
+<br><br>
 <span>You can logout now</span>
 <i class="fa fa-padlock"></i>
 <br><br>
@@ -87,7 +87,7 @@ function sendPostRequest(url, data, success) {
 
 <div class="w3-center w3-padding-jumbo">
 <span class="w3-xlarge">Your Test is schedule to start by <?=date('F j Y,g:ia',$next_test['test_start'])?></span>
-<br>
+<br><br>
 <span>You can logout now</span>
 <i class="fa fa-padlock"></i>
 <br><br>
@@ -147,50 +147,7 @@ function sendPostRequest(url, data, success) {
   </div>
 
   <div class="w3-cell">
-    <script>
-    var t = setInterval(theCBTTimer, 1000);
-
-  function theCBTTimer() {
-    //var p = new Date();
-    //document.getElementById("time_div").innerHTML = p.toLocaleTimeString();
-    d = new Date();
-    var date = d.getTime(); d = d/1000; d = new Number(d);
-    d = d.toFixed();
-  var e = <?php echo $_SESSION['start_time'] + ($_SESSION['running'] * 60); ?>;
-
-
-  if(e > d)
-  {
-  if(<?php echo $_SESSION['running'];?> != 120)
-  {
-         var diff = e - d;
-         var min = Math.floor(diff/60);
-          var sec = (diff % 60);
-          var tim = min+':'+sec+'   ';
-      document.getElementById("time_div").innerHTML = tim;
-    }else{
-
-
-      var diff = e - d;
-      var hour = Math.floor(diff/3600);
-       var min = Math.floor((diff%3600)/60);
-       var sec = (diff%3600)%60;
-
-       var tim =hour+'hr:'+ min+'min:'+sec+'sec ';
-      // var tim =hour+'h:'+ min+'m:'+sec+'s';
-
-   document.getElementById("time_div").innerHTML = tim;
-
-    }
-  }else if (e <= d) {
-    //submit
-    document.getElementById("q_div").style.display = "none";
-  window.location.assign('<?php echo site_url('question/submit'); ?>');
-  }
-
-
-  }
-  </script>
+   
     <div id='time_div'>
 
   </div>
@@ -404,22 +361,16 @@ var controller = {
 "init":function(){
 
 sendGetRequest('<?=site_url('question/ajax_get_question') ?>',(data)=>{
-  this.checkError(JSON.parse(data));
-  return ;
-
+  if (JSON.parse(data).error == 1){
+  //check error 
+   changeScreenTo(`hold_${JSON.parse(data).report.toLowerCase()}_screen`);
+   return;
+}
 state.question = JSON.parse(data).question;
 state.question.index = parseInt(state.question.index);
 changeScreenTo('hold_question_screen');
 buildWholeQuestionLook(state.question);
 });
-
-},
-
-"checkError":function(data){
-if (data.error==1){
-//console.log(data.report.toLowerCase());
-  changeScreenTo(`hold_${data.report.toLowerCase()}_screen`);
-}
 
 }
 ,
@@ -433,7 +384,11 @@ if(submitted){
 
   let payLoad = {"question_index":state.question.index,"user_answer":userAnswer,"submitted":true};
   sendPostRequest(`<?=site_url('question/ajax_post_question') ?>/${state.next_question_index}`,payLoad,(data)=>{
-    
+    if (JSON.parse(data).error == 1){
+  //check error 
+   changeScreenTo(`hold_${JSON.parse(data).report.toLowerCase()}_screen`);
+   return;
+}
 changeScreenTo('hold_submit_screen');
 
   });
@@ -442,8 +397,11 @@ changeScreenTo('hold_submit_screen');
 
   let payLoad = {"question_index":state.question.index,"user_answer":userAnswer};
   sendPostRequest(`<?=site_url('question/ajax_post_question') ?>/${state.next_question_index}`,payLoad,(data)=>{
-    this.checkError(JSON.parse(data));
-    return;
+    if (JSON.parse(data).error == 1){
+  //check error 
+   changeScreenTo(`hold_${JSON.parse(data).report.toLowerCase()}_screen`);
+   return;
+}
     state.question = JSON.parse(data).question;
     state.question.index = parseInt(state.question.index);
 
