@@ -19,6 +19,7 @@ class Install extends CI_Controller {
             id int(11) NOT NULL AUTO_INCREMENT,
             firstname varchar(128),
             lastname varchar(128),
+            student_id varchar(128),
             password varchar(128),
             email varchar(128),
             phone varchar(128),
