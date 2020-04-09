@@ -7,7 +7,7 @@ Timer<br>
 Multiple Questions and Answer<br>
 Admin Dashboard<br>
 
-##Administration
+## Administration
 <br>
 Admin add questions<br>
 Admin set test time <br>
@@ -30,5 +30,8 @@ Admin set collections of question to be answer by logged in student . student an
 <li>Ability for Admin to disable frontend Registration<li>
 <li>New design for the homepage</li>
 </ul>
+<br>
 Development is still on
-this was a side project about 3years ago(was original a past question practice app)
+this was a side project about 3years ago(was originally a past question practice app)
+<br>
+New update as at April 9,2020 all that remain now is modification of admin dashboard and roles
