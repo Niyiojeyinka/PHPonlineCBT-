@@ -176,7 +176,8 @@ public function ajax_post_question($next_question_index)
     }else{
 
         $data=[
-            'status'=>'submitted'
+            'status'=>'submitted',
+            'time_end'=>time()
         ];
         $this->users_model->update_test_session($data,$test_details['id'],$this->session->id);
        echo json_encode(['error'=>1,'report'=>'SUBMIT']);

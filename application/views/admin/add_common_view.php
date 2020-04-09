@@ -6,7 +6,7 @@
 <form action="<?php
 echo site_url('admin/add_common');
 ?>" method="post">
-<span ="w3-text-red"><?php
+<span class="w3-text-red"><?php
 echo validation_errors(); ?>
 </span>
 <?php
