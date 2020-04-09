@@ -361,7 +361,7 @@ var buildQuestionsno = function(question) {
 for (var i = 0;i<question.total_no_questions ; i++) {
   let color='white';
    if (question.index==i){
-     color ="gray";
+     color ="light-gray";
    }else if(question.user_answers[i] != undefined && question.user_answers[i] !="empty"){
     color ="green";
 
@@ -404,6 +404,9 @@ var controller = {
 "init":function(){
 
 sendGetRequest('<?=site_url('question/ajax_get_question') ?>',(data)=>{
+  this.checkError(JSON.parse(data));
+  return ;
+
 state.question = JSON.parse(data).question;
 state.question.index = parseInt(state.question.index);
 changeScreenTo('hold_question_screen');
@@ -412,6 +415,14 @@ buildWholeQuestionLook(state.question);
 
 },
 
+"checkError":function(data){
+if (data.error==1){
+//console.log(data.report.toLowerCase());
+  changeScreenTo(`hold_${data.report.toLowerCase()}_screen`);
+}
+
+}
+,
 "processAction":function(next_question_index,submitted) {
   //process no,next,previous btn click
   let userAnswer = this.getUserChosenOption();
@@ -424,7 +435,6 @@ if(submitted){
   sendPostRequest(`<?=site_url('question/ajax_post_question') ?>/${state.next_question_index}`,payLoad,(data)=>{
     
 changeScreenTo('hold_submit_screen');
-buildWholeQuestionLook(state.question);
 
   });
 
@@ -432,7 +442,8 @@ buildWholeQuestionLook(state.question);
 
   let payLoad = {"question_index":state.question.index,"user_answer":userAnswer};
   sendPostRequest(`<?=site_url('question/ajax_post_question') ?>/${state.next_question_index}`,payLoad,(data)=>{
-    
+    this.checkError(JSON.parse(data));
+    return;
     state.question = JSON.parse(data).question;
     state.question.index = parseInt(state.question.index);
 

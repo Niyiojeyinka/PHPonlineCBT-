@@ -74,6 +74,12 @@ public function ajax_get_question($question_index = 0)
     $test_details = $this->dashboard_model->get_next_test();
     $test_time_status = $this->question_model->check_test_time_status($test_details);
     $user_test_session = $this->users_model->get_user_test_session($this->session->id, $test_details['id']);
+        //check for submit
+        if ($user_test_session['status']=="submitted"){
+            echo json_encode(['error'=>1,'report'=>'SUBMIT']);
+exit();
+        }
+
         //check for test time
            if ($test_time_status == "ACTIVE"){
         //check for user session time
@@ -163,7 +169,7 @@ public function ajax_post_question($next_question_index)
             'status'=>'submitted'
         ];
         $this->users_model->update_test_session($data,$test_details['id'],$this->session->id);
-       echo json_encode(['error'=>0,'report'=>'submitted successfully']);
+       echo json_encode(['error'=>1,'report'=>'SUBMIT']);
 
     }
 }

@@ -1,7 +1,7 @@
 
 <header class="w3-bar w3-card w3-theme w3-cell-row w3-padding-jumbo">
     
-    <span class="w3-xlarge "><strong>Online CBT</strong></span>
+   <a href="<?=site_url('dashboard') ?>"> <span class="w3-xlarge "><strong>Online CBT</strong></span></a>
    </div>
 
 </header>
