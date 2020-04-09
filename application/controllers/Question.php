@@ -133,6 +133,9 @@ exit();
             $question['index']=$question_index;
             $question['user_answers']=json_decode($user_test_session['answers']);
             $question['total_no_questions']=count(json_decode($user_test_session['questions']));
+            $question['time_used']=$user_test_session['time_used'];
+            $question['time_allowed']=$test_details['time_allowed'];
+
             echo json_encode(['error'=>0,'question' => $question]);
 
             

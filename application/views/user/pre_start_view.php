@@ -10,7 +10,7 @@
 </div>
 <br>
 <span class="w3-small">ALL Test must have been submitted before <?=date("F,j Y ,g:ia",$next_test['test_end'])?></span><br>
-<a href='<?=site_url("question/question") ?>' class='w3-button w3-indigo w3-margin'>Start Now</a>
+<a href='<?=site_url("question/question") ?>' class='w3-button w3-indigo w3-text-white w3-small w3-margin w3-hover-white w3-border w3-border-indigo w3-hover-text-indigo'>Start Now</a>
 
 
 </div>

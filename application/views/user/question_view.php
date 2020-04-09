@@ -74,7 +74,7 @@ function sendPostRequest(url, data, success) {
 <span>You can logout now</span>
 <i class="fa fa-padlock"></i>
 <br><br>
-<a class="w3-button w3-indigo w3-text-white w3-large" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
+<a class="w3-button w3-indigo w3-text-white w3-large w3-hover-white w3-border w3-border-indigo w3-hover-text-indigo" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
 </div>
 
 </div>
@@ -91,7 +91,7 @@ function sendPostRequest(url, data, success) {
 <span>You can logout now</span>
 <i class="fa fa-padlock"></i>
 <br><br>
-<a class="w3-button w3-indigo w3-text-white w3-large" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
+<a class="w3-button w3-indigo w3-text-white w3-large w3-hover-white w3-border w3-border-indigo w3-hover-text-indigo" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
 </div>
 
 
@@ -111,7 +111,7 @@ function sendPostRequest(url, data, success) {
 <span>You can logout now</span>
 <i class="fa fa-padlock"></i>
 <br><br>
-<a class="w3-button w3-indigo w3-text-white w3-large" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
+<a class="w3-button w3-indigo w3-text-white w3-large w3-hover-white w3-border w3-border-indigo w3-hover-text-indigo" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
 </div>
 
 
@@ -127,7 +127,7 @@ function sendPostRequest(url, data, success) {
 <span>You can logout now</span>
 <i class="fa fa-padlock"></i>
 <br><br>
-<a class="w3-button w3-indigo w3-text-white w3-large" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
+<a class="w3-button w3-indigo w3-text-white w3-large w3-hover-white w3-border w3-border-indigo w3-hover-text-indigo" href='<?php echo site_url('dashboard/logout'); ?>'>Logout</a>
 </div>
 
 
@@ -147,8 +147,51 @@ function sendPostRequest(url, data, success) {
   </div>
 
   <div class="w3-cell">
-   
-    <div id='time_div'>
+  <script>
+      console.log("Hey Weldone you must be a dev ,wish you goodluck");
+
+function activateTimer(time_used,time_allowed){
+
+
+    var t = setInterval(theTimer, 1000);
+
+  function theTimer() {
+    
+    d = new Date();
+    var date = d.getTime(); d = d/1000; d = new Number(d);
+    d = d.toFixed();
+
+
+  var e = (parseInt(time_allowed) + parseInt(d)) - parseInt(time_used);
+  
+
+  if(e > d)
+  {
+
+    var diff = e - d;
+
+        var hrs = Math.floor(diff/(60 * 60));
+
+        var minSec = (diff/(60 * 60)-hrs)*60;
+         var min = Math.floor(minSec);
+
+          var sec = parseInt((minSec-min)*60);
+          var tim = hrs+'hrs :'+min+'min :'+sec+'  secs ';
+      document.getElementById("time_div").innerHTML = tim;
+      //rowcontainers.insertAdjacentHTML('beforeend',newrow);
+
+  }else if (e <= d) {
+      //document.getElementById("parent_time").innerHTML = "Time out";
+$("#question_container").html("<i class='w3-jumbo w3-text-yellow fa fa-clock-o w3-padding-jumbo'></i><br><span class='w3-large'>Oops,Game Timeout</span><br>");
+
+   //timeOut();
+  }
+
+time_used++;
+
+  }}
+  </script>
+    <div id='time_div' class='w3-large'>
 
   </div>
   </div>
@@ -269,7 +312,7 @@ function sendPostRequest(url, data, success) {
 
         </div>
 <br><br>
-<input  class="w3-btn w3-red" type="submit" name="submit" onclick="controller.submit()" value="Submit"/>
+        <input  class="w3-btn w3-red" type="submit" name="submit" onclick="let u=confirm('Are sure want to Submit?');if(u){controller.submit();}" value="Submit"/>
 
 </div>
 
@@ -324,7 +367,7 @@ for (var i = 0;i<question.total_no_questions ; i++) {
 
    }
 
-   holdnos +=`<button class='w3-button w3-border w3-${color}' name='qno' onclick="controller.actionBtn(this.value)"   value='${i}'>${i+1}</button>
+   holdnos +=`<button class='w3-button w3-border w3-${color} w3-small' name='qno' onclick="controller.actionBtn(this.value)"   value='${i}'>${i+1}</button>
 `; 
 }
 
@@ -370,6 +413,7 @@ state.question = JSON.parse(data).question;
 state.question.index = parseInt(state.question.index);
 changeScreenTo('hold_question_screen');
 buildWholeQuestionLook(state.question);
+activateTimer(state.question.time_used,state.question.time_allowed)
 });
 
 }

@@ -2,9 +2,10 @@
 
 
 
-Onscreen Calculator
-Multiple Questions and Answer
-Admin Dashboard
+Onscreen Calculator<br>
+Timer<br>
+Multiple Questions and Answer<br>
+Admin Dashboard<br>
 
 ##Administration
 <br>
