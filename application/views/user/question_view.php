@@ -379,7 +379,6 @@ return holdnos;
 var buildWholeQuestionLook = function(question) {
   //build the question look
 
-changeScreenTo('hold_question_screen');
 document.querySelector('div[id="theoptions"]').innerHTML= buildWholeOptionLook(question);
 document.querySelector('div[id="theinstructions"]').innerHTML =question.instructions;
 document.querySelector('div[id="thecomp"]').innerHTML =question.comp;

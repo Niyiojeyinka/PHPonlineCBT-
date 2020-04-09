@@ -77,20 +77,18 @@ public function ajax_get_question($question_index = 0)
         //check for submit
         if ($user_test_session['status']=="submitted"){
             echo json_encode(['error'=>1,'report'=>'SUBMIT']);
-exit();
+return;
         }
 
         //check for test time
            if ($test_time_status == "ACTIVE"){
-        //check for user session time
-        if ($user_test_session['time_used'] < $test_details['time_allowed']){
-
-            $questions_array = NULL;
+        
+            $questions_array;
             if($this->users_model->check_if_attend_test( $test_details['id'],$this->session->id)){
                 //attended already
 
-                        $questions_array =json_decode($this->users_model->get_user_test_session(
-                             $test_details['id'],$this->session->id)['questions'],true);
+                        $questions_array =json_decode($this->users_model->get_user_test_session($this->session->id,
+                             $test_details['id'])['questions'],true);
                         //update session time
 
                              $data=[
@@ -128,11 +126,24 @@ exit();
 
             }
 
+//get updated user test session
+            $user_test_session = $this->users_model->get_user_test_session($this->session->id, $test_details['id']);
+
+            //check for user session time
+        if ($user_test_session['time_used'] >= $test_details['time_allowed']){
+           
+            ///your time is up
+            echo json_encode(['error'=>1,'report'=>'TIME_UP']);
+            return;
+            
+    }
+
             //get question
+
             $question = $this->question_model->get_question_by_id($questions_array[$question_index],true);
             $question['index']=$question_index;
             $question['user_answers']=json_decode($user_test_session['answers']);
-            $question['total_no_questions']=count(json_decode($user_test_session['questions']));
+            $question['total_no_questions']=count(json_decode($test_details['questions']));
             $question['time_used']=$user_test_session['time_used'];
             $question['time_allowed']=$test_details['time_allowed'];
 
@@ -140,10 +151,6 @@ exit();
 
             
 
-        }else{
-        ///your time is up
-        echo json_encode(['error'=>1,'report'=>'TIME_UP']);
-        }
         }else{
 
             echo json_encode(['error'=>1,'report'=>$test_time_status]);
