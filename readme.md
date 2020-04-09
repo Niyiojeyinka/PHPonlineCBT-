@@ -23,6 +23,12 @@ Admin set collections of question to be answer by logged in student . student an
 <br>
 <br>
 
-
+## Todos
+<ul>
+<li>Admin register student</li>
+<li>Add Roles:admin,teacher</li>
+<li>Ability for Admin to disable frontend Registration<li>
+<li>New design for the homepage</li>
+</ul>
 Development is still on
 this was a side project about 3years ago(was original a past question practice app)
